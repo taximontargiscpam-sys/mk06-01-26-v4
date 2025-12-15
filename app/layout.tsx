@@ -61,6 +61,10 @@ export const metadata: Metadata = {
   },
 }
 
+import { Footer } from "@/components/footer"
+
+// ... (other imports)
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -70,6 +74,7 @@ export default function RootLayout({
     <html className="my-0 py-[-0px] py-[-10px]" lang="fr">
       <body className={`${inter.className} font-sans antialiased`}>
         {children}
+        <Footer />
         <Analytics />
       </body>
     </html>
