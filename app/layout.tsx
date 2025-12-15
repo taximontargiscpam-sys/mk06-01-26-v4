@@ -62,6 +62,7 @@ export const metadata: Metadata = {
 }
 
 import { Footer } from "@/components/footer"
+import JsonLd from "@/components/json-ld"
 
 // ... (other imports)
 
@@ -74,6 +75,7 @@ export default function RootLayout({
     <html className="my-0 py-[-0px] py-[-10px]" lang="fr">
       <body className={`${inter.className} font-sans antialiased`}>
         {children}
+        <JsonLd />
         <Footer />
         <Analytics />
       </body>
