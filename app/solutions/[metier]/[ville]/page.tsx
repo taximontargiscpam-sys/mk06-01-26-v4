@@ -61,7 +61,7 @@ export default function SeoLandingPage({ params }: { params: { metier: string; v
                             <Link href="/reservation">Essayer mon Agent {metier.singular} (Gratuit)</Link>
                         </Button>
                         <Button size="lg" variant="outline" className="text-white border-white/20 hover:bg-white/10 text-lg h-14 px-8" asChild>
-                            <Link href="/demo">Écouter une démo</Link>
+                            <Link href="/reservation">Écouter une démo</Link>
                         </Button>
                     </div>
                 </div>
