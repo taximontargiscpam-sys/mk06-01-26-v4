@@ -1,4 +1,5 @@
 import { MetadataRoute } from 'next'
+import { SEO_DATA } from '@/lib/seo-data'
 
 export default function sitemap(): MetadataRoute.Sitemap {
     const baseUrl = 'https://mkdigitalparis.com'
@@ -17,5 +18,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
         priority: route === '' ? 1 : 0.8,
     }))
 
-    return [...routes]
+    // Pages Programmattic SEO (Solutions par Métier et Ville)
+    const seoRoutes = SEO_DATA.metiers.flatMap((metier) =>
+        SEO_DATA.villes.map((ville) => ({
+            url: `${baseUrl}/solutions/${metier.slug}/${ville.slug}`,
+            lastModified: new Date(),
+            changeFrequency: 'monthly' as const,
+            priority: 0.9,
+        }))
+    )
+
+    return [...routes, ...seoRoutes]
 }
