@@ -1,13 +1,29 @@
 import { createClient } from "@supabase/supabase-js"
 
-// Regular Supabase client with anon key (respects RLS)
-export const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!)
+// Helper to create a safe client (mock or real)
+const createSafeClient = (url?: string, key?: string) => {
+  if (!url || !key) {
+    console.warn("Supabase credentials missing. Using mock client.")
+    return {
+      from: () => ({
+        select: () => ({ eq: () => ({ single: () => ({ data: null, error: null }) }) }),
+        insert: () => ({ select: () => ({ single: () => ({ data: null, error: null }) }) }),
+        update: () => ({ eq: () => ({ select: () => ({ single: () => ({ data: null, error: null }) }) }) }),
+        delete: () => ({ eq: () => ({ data: null, error: null }) }),
+      }),
+      auth: {
+        getUser: () => ({ data: { user: null }, error: null }),
+        getSession: () => ({ data: { session: null }, error: null }),
+        signOut: () => ({ error: null }),
+      }
+    } as any
+  }
+  return createClient(url, key)
+}
 
-// Admin Supabase client with service role key (bypasses RLS)
-// Use this ONLY on the server side for admin operations
-export const supabaseAdmin = createClient(process.env.SUPABASE_URL!, process.env.SUPABASE_SERVICE_ROLE_KEY!, {
-  auth: {
-    autoRefreshToken: false,
-    persistSession: false,
-  },
-})
+// Regular Supabase client
+export const supabase = createSafeClient(process.env.NEXT_PUBLIC_SUPABASE_URL, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY)
+
+// Admin Supabase client
+export const supabaseAdmin = createSafeClient(process.env.SUPABASE_URL, process.env.SUPABASE_SERVICE_ROLE_KEY)
+
