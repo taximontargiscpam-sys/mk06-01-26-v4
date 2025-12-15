@@ -1,5 +1,6 @@
 export const SEO_DATA = {
     metiers: [
+        // Secteur Juridique & Chiffre
         {
             slug: "avocat",
             label: "Avocats",
@@ -8,18 +9,48 @@ export const SEO_DATA = {
             benefice: "Filtrage des appels juridiques et prise de RDV automatique.",
         },
         {
-            slug: "dentiste",
-            label: "Dentistes",
-            singular: "Dentiste",
-            accroche: "Optimisez le remplissage de votre fauteuil.",
-            benefice: "Gestion des urgences et annulations de dernière minute par IA.",
+            slug: "expert-comptable",
+            label: "Experts Comptables",
+            singular: "Expert Comptable",
+            accroche: "Libérez-vous de la saisie des RDV fiscaux.",
+            benefice: "Qualification des prospects entreprises et gestion d'agenda.",
         },
         {
-            slug: "agent-immobilier",
-            label: "Agents Immobiliers",
-            singular: "Agent Immobilier",
-            accroche: "Vendez plus de biens, passez moins de temps au téléphone.",
-            benefice: "Qualification des acheteurs et plannification des visites 24/7.",
+            slug: "gestionnaire-patrimoine",
+            label: "Gestionnaires de Patrimoine",
+            singular: "Gestionnaire de Patrimoine",
+            accroche: "Vos prospects fortunés exigent une réponse immédiate.",
+            benefice: "Prise en charge VIP 24/7 et qualification des investisseurs.",
+        },
+        {
+            slug: "conseil",
+            label: "Cabinets de Conseil",
+            singular: "Consultant",
+            accroche: "Automatisez la prise de RDV de vos consultants.",
+            benefice: "Filtrage B2B et organisation des appels de découverte.",
+        },
+
+        // Secteur BTP & Énergie (High Ticket)
+        {
+            slug: "pompe-a-chaleur",
+            label: "Installateurs Pompe à Chaleur",
+            singular: "Installateur PAC",
+            accroche: "Qualifiez vos leads PAC avant même de décrocher.",
+            benefice: "Vérification éligibilité MaPrimeRénov' automatique.",
+        },
+        {
+            slug: "renovation",
+            label: "Entreprises de Rénovation",
+            singular: "Expert Rénovation",
+            accroche: "Ne laissez plus filer de chantiers à 50k€.",
+            benefice: "Devis express et qualification des propriétaires.",
+        },
+        {
+            slug: "panneaux-solaires",
+            label: "Installateurs Solaire / CEE",
+            singular: "Installateur Solaire",
+            accroche: "Maximisez vos conversions de leads solaires.",
+            benefice: "Qualification technique et prise de RDV terrain.",
         },
         {
             slug: "plombier",
@@ -28,26 +59,51 @@ export const SEO_DATA = {
             accroche: "Intervenez rapidement sans gérer le standard.",
             benefice: "Devis instantané et dispatching des urgences.",
         },
+
+        // Secteur Luxe & Services VIP
         {
-            slug: "restaurant",
-            label: "Restaurateurs",
-            singular: "Restaurateur",
-            accroche: "Remplissez vos tables, même en plein service.",
-            benefice: "Prise de réservation automatique pendant que vous cuisinez.",
+            slug: "bodyguard",
+            label: "Services de Bodyguard / Protection",
+            singular: "Bodyguard",
+            accroche: "Discrétion et réactivité absolue pour vos clients VIP.",
+            benefice: "Filtrage sécurisé et réponse immédiate 24/7.",
         },
         {
-            slug: "institut-beaute",
-            label: "Instituts de Beauté",
-            singular: "Institut de Beauté",
-            accroche: "Focalisez-vous sur vos soins, l'IA gère l'agenda.",
-            benefice: "Réservation de soins et rappels automatiques anti-no-show.",
+            slug: "conciergerie-luxe",
+            label: "Conciergeries de Luxe",
+            singular: "Concierge de Luxe",
+            accroche: "L'excellence du service ne dort jamais.",
+            benefice: "Gestion des requêtes clients jour et nuit en multilingue.",
         },
         {
-            slug: "entreprise-btp",
-            label: "Entreprises BTP",
-            singular: "Entrepreneur BTP",
-            accroche: "Gérez vos chantiers, pas votre téléphone.",
-            benefice: "Filtrage des démarchages et prise de RDV devis.",
+            slug: "personal-shopper",
+            label: "Personal Shoppers",
+            singular: "Personal Shopper",
+            accroche: "Gérez votre clientèle exclusive sans interruption.",
+            benefice: "Prise de RDV shopping et gestion VIP.",
+        },
+        {
+            slug: "wedding-planner",
+            label: "Wedding Planners",
+            singular: "Wedding Planner",
+            accroche: "Rassurez les futurs mariés instantanément.",
+            benefice: "Gestion des premiers contacts et qualification budget.",
+        },
+        {
+            slug: "agent-immobilier",
+            label: "Agents Immobiliers",
+            singular: "Agent Immobilier",
+            accroche: "Vendez plus de biens, passez moins de temps au téléphone.",
+            benefice: "Qualification des acheteurs et plannification des visites 24/7.",
+        },
+
+        // Formation & Éducation
+        {
+            slug: "centre-formation",
+            label: "Centres de Formation / OPCO",
+            singular: "Centre de Formation",
+            accroche: "Remplissez vos sessions CPF sans effort commercial.",
+            benefice: "Vérification solde CPF et inscription automatique.",
         },
     ],
     villes: [
