@@ -121,7 +121,7 @@ export function Footer() {
                         <h3 className="font-bold text-white">Entreprise</h3>
                         <ul className="space-y-4">
                             <li>
-                                <Link href="/reservation" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                                <Link href="/vision" className="text-sm text-muted-foreground hover:text-primary transition-colors">
                                     À propos
                                 </Link>
                             </li>
