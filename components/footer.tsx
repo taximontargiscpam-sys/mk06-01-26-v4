@@ -52,23 +52,23 @@ export function Footer() {
                         <h3 className="font-bold text-white">Solutions</h3>
                         <ul className="space-y-4">
                             <li>
-                                <Link href="/#growth-system" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                                    Growth System
+                                <Link href="/services" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                                    Services
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/#levels" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                                <Link href="/agents" className="text-sm text-muted-foreground hover:text-primary transition-colors">
                                     Agent IA
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/reservation" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                                    Audit 360°
+                                <Link href="/secteurs" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                                    Secteurs
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/reservation" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                                    Espace Réservation
+                                <Link href="/resultats" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                                    Résultats
                                 </Link>
                             </li>
                         </ul>
@@ -79,13 +79,18 @@ export function Footer() {
                         <h3 className="font-bold text-white">Entreprise</h3>
                         <ul className="space-y-4">
                             <li>
-                                <Link href="/reservation" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                                    À propos
+                                <Link href="/vision" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                                    Vision
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/contact" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                                    Contact
                                 </Link>
                             </li>
                             <li>
                                 <Link href="/reservation" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                                    Carrières
+                                    Espace Réservation
                                 </Link>
                             </li>
                             <li>
