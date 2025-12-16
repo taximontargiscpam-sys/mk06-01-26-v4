@@ -8,7 +8,7 @@ export function Footer() {
     return (
         <footer className="bg-background border-t border-white/5 pt-16 pb-8">
             <div className="container mx-auto px-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
                     {/* Brand Column */}
                     <div className="space-y-6">
                         <Link href="/" className="inline-block">
@@ -47,9 +47,9 @@ export function Footer() {
                         </div>
                     </div>
 
-                    {/* Solutions Column */}
+                    {/* Navigation Column (Main Menu) */}
                     <div className="space-y-6">
-                        <h3 className="font-bold text-white">Solutions</h3>
+                        <h3 className="font-bold text-white">Navigation</h3>
                         <ul className="space-y-4">
                             <li>
                                 <Link href="/services" className="text-sm text-muted-foreground hover:text-primary transition-colors">
@@ -71,13 +71,6 @@ export function Footer() {
                                     Résultats
                                 </Link>
                             </li>
-                        </ul>
-                    </div>
-
-                    {/* Entreprise Column */}
-                    <div className="space-y-6">
-                        <h3 className="font-bold text-white">Entreprise</h3>
-                        <ul className="space-y-4">
                             <li>
                                 <Link href="/vision" className="text-sm text-muted-foreground hover:text-primary transition-colors">
                                     Vision
@@ -88,9 +81,48 @@ export function Footer() {
                                     Contact
                                 </Link>
                             </li>
+                        </ul>
+                    </div>
+
+                    {/* Solutions Column (Restored) */}
+                    <div className="space-y-6">
+                        <h3 className="font-bold text-white">Solutions</h3>
+                        <ul className="space-y-4">
+                            <li>
+                                <Link href="/#growth-system" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                                    Growth System
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/#levels" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                                    Agent IA (Niveaux)
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/reservation" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                                    Audit 360°
+                                </Link>
+                            </li>
                             <li>
                                 <Link href="/reservation" className="text-sm text-muted-foreground hover:text-primary transition-colors">
                                     Espace Réservation
+                                </Link>
+                            </li>
+                        </ul>
+                    </div>
+
+                    {/* Entreprise Column (Restored) */}
+                    <div className="space-y-6">
+                        <h3 className="font-bold text-white">Entreprise</h3>
+                        <ul className="space-y-4">
+                            <li>
+                                <Link href="/reservation" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                                    À propos
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/reservation" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                                    Carrières
                                 </Link>
                             </li>
                             <li>
