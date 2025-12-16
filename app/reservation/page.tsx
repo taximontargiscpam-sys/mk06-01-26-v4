@@ -302,6 +302,9 @@ export default function ReservationPage() {
                                         <Zap className="w-4 h-4 shrink-0" />
                                         Notre IA vous appellera automatiquement sous 60 secondes pour calibrer le système.
                                     </div>
+                                    <p className="text-[10px] text-gray-400 mt-1 italic text-center">
+                                        En réservant, vous acceptez d'être rappelé automatiquement pour préparer l'activation.
+                                    </p>
                                 </div>
                             </div>
 
