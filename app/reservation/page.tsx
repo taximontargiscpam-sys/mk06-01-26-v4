@@ -35,7 +35,7 @@ function CountdownTimer() {
         <div className="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-4 bg-gradient-to-r from-blue-900/60 to-indigo-950/60 backdrop-blur-md px-6 py-3 rounded-xl border border-blue-500/30 shadow-[0_0_20px_rgba(37,99,235,0.2)] animate-in slide-in-from-top duration-500">
             <div className="flex items-center gap-2 text-indigo-300 font-bold uppercase tracking-widest text-xs md:text-sm">
                 <Timer className="w-5 h-5 animate-pulse text-indigo-400" />
-                <span>Offre Agent Illimité Valable jusqu'au 31/12/2025 :</span>
+                <span>Offre Agent Vocal Valable jusqu'au 31/12/2025 :</span>
             </div>
             <div className="flex gap-3 font-black text-white text-lg md:text-xl font-sans tracking-tight">
                 <div className="bg-black/40 px-2 rounded backdrop-blur-sm border border-white/10">{timeLeft.days}J</div>
@@ -208,7 +208,7 @@ export default function ReservationPage() {
                                     <div className="flex-1 text-center md:text-left">
                                         <h4 className="text-xl font-bold text-white">3. Le Crédit de Démarrage</h4>
                                         <p className="text-gray-400 text-sm mt-1">
-                                            Nous pré-chargeons le compte avec suffisamment de crédit pour traiter vos premiers prospects réels. Vous testez la puissance du système sans dépenser un centime.
+                                            Activation + Crédit de démarrage inclus (minutes limitées). Une fois le crédit consommé, le fonctionnement passe à l'usage. Les conditions exactes vous seront présentées par l'expert pendant le rendez-vous.
                                         </p>
                                     </div>
                                 </div>
@@ -272,7 +272,6 @@ export default function ReservationPage() {
                             </div>
                             <div className="text-center">
                                 <span className="text-white font-bold block text-lg">Offre limitée jusqu'au 31 décembre 2025.</span>
-
                             </div>
                         </div>
 
