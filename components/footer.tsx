@@ -81,6 +81,11 @@ export function Footer() {
                                     Contact
                                 </Link>
                             </li>
+                            <li>
+                                <Link href="/reservation" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                                    Réservation
+                                </Link>
+                            </li>
                         </ul>
                     </div>
 
