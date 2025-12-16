@@ -12,7 +12,7 @@ const tiers = [
     badge: "Point de départ",
     description:
       "Au niveau 1, votre agent IA fait office de standard unique : il décroche en 3 secondes 24/7, filtre les appels indésirables, prend les messages et vous les envoie par mail/SMS. Numéro dédié inclus.",
-    price: "Gratuit (0€ / mois)",
+    price: "Gratuit",
     cta: "Activer le Standard IA",
   },
   {
@@ -21,7 +21,7 @@ const tiers = [
     badge: "Offre recommandée",
     description:
       "Au niveau 2, c’est toujours le même agent IA. On lui ajoute la compétence Agenda & Qualification : il comprend le motif d’appel, qualifie la demande, vérifie vos disponibilités, pose le rendez-vous et relance automatiquement pour éviter les no-show.",
-    price: "Offre pilote : 4 497 €",
+    price: "Sur devis",
     cta: "Découvrir le Secrétariat IA",
   },
   {
@@ -30,7 +30,7 @@ const tiers = [
     badge: "Infrastructure complète",
     description:
       "Au niveau Empire, vous gardez le même agent IA, mais connecté à une infrastructure complète : campagnes Ads, récolte d’avis Google 5★, site de conversion et CRM relié. Une seule machine qui alimente tout votre pipeline.",
-    price: "Pack complet : 9 997 €",
+    price: "Sur devis",
     cta: "Voir l’infrastructure Empire",
   },
 ]

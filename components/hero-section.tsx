@@ -48,7 +48,7 @@ export function HeroSection() {
                   asChild
                   size="lg"
                   variant="outline"
-                  className="bg-blue-700 hover:bg-blue-800 text-white border-none text-lg py-6 px-8 rounded-full transition-all duration-300 h-[60px] shadow-lg hover:shadow-blue-900/50"
+                  className="bg-blue-700 hover:bg-blue-800 text-white border-none text-base md:text-lg py-4 md:py-6 px-6 md:px-8 rounded-full transition-all duration-300 h-auto md:h-[60px] shadow-lg hover:shadow-blue-900/50"
                 >
                   <Link href="/vision">Comprendre la Vision</Link>
                 </Button>
@@ -107,7 +107,7 @@ export function HeroSection() {
                 asChild
                 size="lg"
                 variant="outline"
-                className="bg-blue-700 hover:bg-blue-800 text-white border-none w-full py-6 rounded-full shadow-lg"
+                className="bg-blue-700 hover:bg-blue-800 text-white border-none w-full py-4 text-base rounded-full shadow-lg h-12"
               >
                 <Link href="/vision">Comprendre la Vision</Link>
               </Button>

@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import Image from "next/image"
 import { usePathname } from "next/navigation"
-import { Menu } from "lucide-react"
+import { Menu, ArrowRight } from "lucide-react"
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet"
 
 export function Navigation() {
@@ -87,24 +87,32 @@ export function Navigation() {
                 <Menu className="w-8 h-8" />
               </button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-[300px] border-l border-white/10 bg-background/95 backdrop-blur-xl">
+            <SheetContent side="right" className="w-[300px] border-l border-white/10 bg-[#020617]/95 backdrop-blur-xl p-0">
               <SheetTitle className="sr-only">Menu de navigation</SheetTitle>
-              <div className="flex flex-col gap-6 mt-10">
-                {navLinks.map((link) => (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    className={`text-lg py-2 transition-colors border-b border-white/5 ${isActive(link.href) ? "text-primary font-bold" : "text-foreground/80 hover:text-foreground"
-                      }`}
-                  >
-                    {link.label}
-                  </Link>
-                ))}
-                <Button asChild className="bg-primary hover:bg-primary/90 text-primary-foreground w-full mt-4 h-12 text-lg">
-                  <a href="https://cal.com/mkdigital/30min" target="_blank" rel="noopener noreferrer">
-                    Réserver un entretien
-                  </a>
-                </Button>
+              <div className="flex flex-col h-full bg-gradient-to-b from-[#020617] to-[#0f172a]">
+                <div className="p-6 border-b border-white/5">
+                  <h2 className="text-xl font-bold text-white tracking-tight">Menu</h2>
+                </div>
+                <div className="flex flex-col gap-2 p-6 overflow-y-auto flex-1">
+                  {navLinks.map((link) => (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      className={`text-lg py-4 px-4 rounded-xl transition-all duration-300 flex items-center justify-between group ${isActive(link.href) ? "bg-white/10 text-white font-semibold" : "text-gray-400 hover:text-white hover:bg-white/5"
+                        }`}
+                    >
+                      {link.label}
+                      <ArrowRight className={`w-4 h-4 opacity-0 -translate-x-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0 ${isActive(link.href) ? "opacity-100 translate-x-0" : ""}`} />
+                    </Link>
+                  ))}
+                </div>
+                <div className="p-6 border-t border-white/5 bg-black/20">
+                  <Button asChild className="bg-primary hover:bg-primary/90 text-primary-foreground w-full h-14 text-lg rounded-xl shadow-lg shadow-blue-900/20">
+                    <a href="https://cal.com/mkdigital/30min" target="_blank" rel="noopener noreferrer">
+                      Réserver un entretien
+                    </a>
+                  </Button>
+                </div>
               </div>
             </SheetContent>
           </Sheet>
