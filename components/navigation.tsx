@@ -5,11 +5,12 @@ import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import Image from "next/image"
 import { usePathname } from "next/navigation"
-import { Menu, X } from "lucide-react"
+import { Menu } from "lucide-react"
+import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet"
 
 export function Navigation() {
   const [scrolled, setScrolled] = useState(false)
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false)
   const pathname = usePathname()
 
   useEffect(() => {
@@ -22,9 +23,20 @@ export function Navigation() {
 
   const isActive = (path: string) => pathname === path
 
+  // Close menu when route changes
   useEffect(() => {
-    setMobileMenuOpen(false)
+    setIsOpen(false)
   }, [pathname])
+
+  const navLinks = [
+    { href: "/", label: "Accueil" },
+    { href: "/services", label: "Services" },
+    { href: "/agents", label: "Agent IA" },
+    { href: "/secteurs", label: "Secteurs" },
+    { href: "/resultats", label: "Résultats" },
+    { href: "/vision", label: "Vision" },
+    { href: "/contact", label: "Contact" },
+  ]
 
   return (
     <nav
@@ -34,7 +46,7 @@ export function Navigation() {
       <div className="container mx-auto px-6 py-4 flex items-center justify-between">
         <Link
           href="/"
-          className="relative w-40 h-16 hover:opacity-80 transition-opacity"
+          className="relative w-32 h-12 md:w-40 md:h-16 hover:opacity-80 transition-opacity"
         >
           <Image
             src="/logo.png"
@@ -47,125 +59,57 @@ export function Navigation() {
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-8">
-          <Link
-            href="/"
-            className={`text-sm transition-colors ${isActive("/") ? "text-foreground font-medium" : "text-foreground/80 hover:text-foreground"}`}
-          >
-            Accueil
-          </Link>
-          <Link
-            href="/services"
-            className={`text-sm transition-colors ${isActive("/services") ? "text-foreground font-medium" : "text-foreground/80 hover:text-foreground"}`}
-          >
-            Services
-          </Link>
-          <Link
-            href="/agents"
-            className={`text-sm transition-colors ${isActive("/agents") ? "text-foreground font-medium" : "text-foreground/80 hover:text-foreground"}`}
-          >
-            Agent IA
-          </Link>
-          <Link
-            href="/secteurs"
-            className={`text-sm transition-colors ${isActive("/secteurs") ? "text-foreground font-medium" : "text-foreground/80 hover:text-foreground"}`}
-          >
-            Secteurs
-          </Link>
-          <Link
-            href="/resultats"
-            className={`text-sm transition-colors ${isActive("/resultats") ? "text-foreground font-medium" : "text-foreground/80 hover:text-foreground"}`}
-          >
-            Résultats
-          </Link>
-          <Link
-            href="/vision"
-            className={`text-sm transition-colors ${isActive("/vision") ? "text-foreground font-medium" : "text-foreground/80 hover:text-foreground"}`}
-          >
-            Vision
-          </Link>
-          <Link
-            href="/contact"
-            className={`text-sm transition-colors ${isActive("/contact") ? "text-foreground font-medium" : "text-foreground/80 hover:text-foreground"}`}
-          >
-            Contact
-          </Link>
-          <Button asChild className="bg-primary hover:bg-primary/90 text-primary-foreground">
-            <a
-              href="https://cal.com/mkdigital/30min"
-              target="_blank"
-              rel="noopener noreferrer"
+          {navLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className={`text-sm transition-colors ${isActive(link.href) ? "text-foreground font-medium" : "text-foreground/80 hover:text-foreground"
+                }`}
             >
+              {link.label}
+            </Link>
+          ))}
+          <Button asChild className="bg-primary hover:bg-primary/90 text-primary-foreground">
+            <a href="https://cal.com/mkdigital/30min" target="_blank" rel="noopener noreferrer">
               Réserver un entretien
             </a>
           </Button>
         </div>
 
-        <button
-          className="md:hidden p-2 text-foreground hover:text-primary transition-colors"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          aria-label="Toggle menu"
-        >
-          {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-        </button>
-      </div>
-
-      {mobileMenuOpen && (
-        <div className="md:hidden bg-background/95 backdrop-blur-xl border-b border-border">
-          <div className="container mx-auto px-6 py-4 flex flex-col gap-4">
-            <Link
-              href="/"
-              className={`text-sm py-2 transition-colors ${isActive("/") ? "text-foreground font-medium" : "text-foreground/80"}`}
-            >
-              Accueil
-            </Link>
-            <Link
-              href="/services"
-              className={`text-sm py-2 transition-colors ${isActive("/services") ? "text-foreground font-medium" : "text-foreground/80"}`}
-            >
-              Services
-            </Link>
-            <Link
-              href="/agents"
-              className={`text-sm py-2 transition-colors ${isActive("/agents") ? "text-foreground font-medium" : "text-foreground/80"}`}
-            >
-              Agents IA
-            </Link>
-            <Link
-              href="/secteurs"
-              className={`text-sm py-2 transition-colors ${isActive("/secteurs") ? "text-foreground font-medium" : "text-foreground/80"}`}
-            >
-              Secteurs
-            </Link>
-            <Link
-              href="/resultats"
-              className={`text-sm py-2 transition-colors ${isActive("/resultats") ? "text-foreground font-medium" : "text-foreground/80"}`}
-            >
-              Résultats
-            </Link>
-            <Link
-              href="/vision"
-              className={`text-sm py-2 transition-colors ${isActive("/vision") ? "text-foreground font-medium" : "text-foreground/80"}`}
-            >
-              Vision
-            </Link>
-            <Link
-              href="/contact"
-              className={`text-sm py-2 transition-colors ${isActive("/contact") ? "text-foreground font-medium" : "text-foreground/80"}`}
-            >
-              Contact
-            </Link>
-            <Button asChild className="bg-primary hover:bg-primary/90 text-primary-foreground w-full">
-              <a
-                href="https://cal.com/mkdigital/30min"
-                target="_blank"
-                rel="noopener noreferrer"
+        {/* Mobile Navigation (Sheet) */}
+        <div className="md:hidden">
+          <Sheet open={isOpen} onOpenChange={setIsOpen}>
+            <SheetTrigger asChild>
+              <button
+                className="p-2 text-foreground hover:text-primary transition-colors"
+                aria-label="Toggle menu"
               >
-                Réserver un entretien
-              </a>
-            </Button>
-          </div>
+                <Menu className="w-8 h-8" />
+              </button>
+            </SheetTrigger>
+            <SheetContent side="right" className="w-[300px] border-l border-white/10 bg-background/95 backdrop-blur-xl">
+              <SheetTitle className="sr-only">Menu de navigation</SheetTitle>
+              <div className="flex flex-col gap-6 mt-10">
+                {navLinks.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className={`text-lg py-2 transition-colors border-b border-white/5 ${isActive(link.href) ? "text-primary font-bold" : "text-foreground/80 hover:text-foreground"
+                      }`}
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+                <Button asChild className="bg-primary hover:bg-primary/90 text-primary-foreground w-full mt-4 h-12 text-lg">
+                  <a href="https://cal.com/mkdigital/30min" target="_blank" rel="noopener noreferrer">
+                    Réserver un entretien
+                  </a>
+                </Button>
+              </div>
+            </SheetContent>
+          </Sheet>
         </div>
-      )}
+      </div>
     </nav>
   )
 }

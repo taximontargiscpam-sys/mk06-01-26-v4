@@ -1,4 +1,3 @@
-import { Navigation } from "@/components/navigation"
 import { HeroSection } from "@/components/hero-section"
 import { ProblemSection } from "@/components/problem-section"
 import { GrowthSystemSection } from "@/components/growth-system-section"
@@ -10,7 +9,6 @@ import { PowerCTA } from "@/components/power-cta"
 export default function Home() {
   return (
     <main className="min-h-screen bg-background">
-      <Navigation />
       <HeroSection />
       <ProblemSection />
       <div className="flex justify-center py-12 bg-background relative z-10">
