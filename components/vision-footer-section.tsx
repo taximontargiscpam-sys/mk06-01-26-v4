@@ -107,7 +107,7 @@ export function VisionFooterSection() {
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                Réserver mon Créneau & Déclencher l’Appel IA
+                                Réserver mon créneau
                             </a>
                         </Button>
                     </motion.div>

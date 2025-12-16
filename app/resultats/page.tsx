@@ -100,7 +100,7 @@ export default function ResultatsPage() {
 
             {/* GROS CTA HERO */}
             <div className="mt-12 scale-110">
-              <PowerCTA text="Obtenir ces résultats (Audit Gratuit)" subtext="Capturez, Qualifiez, Convertissez" />
+              <PowerCTA text="Obtenir ces résultats" subtext="Capturez, Qualifiez, Convertissez" />
             </div>
           </div>
         </div>

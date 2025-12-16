@@ -52,7 +52,7 @@ export function FinalCTASection() {
                         >
                             <Link href="https://cal.com/mkdigital/30min" target="_blank">
                                 <Calendar className="mr-2 w-5 h-5" />
-                                Réserver mon créneau & déclencher l’appel IA
+                                Réserver mon créneau
                             </Link>
                         </Button>
                     </div>
