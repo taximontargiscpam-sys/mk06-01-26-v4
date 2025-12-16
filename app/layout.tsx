@@ -64,6 +64,7 @@ export const metadata: Metadata = {
 import { Footer } from "@/components/footer"
 import JsonLd from "@/components/json-ld"
 import { Navigation } from "@/components/navigation"
+import { FacebookPixel } from "@/components/facebook-pixel"
 
 // ... (other imports)
 
@@ -78,6 +79,16 @@ export default function RootLayout({
         <Navigation />
         {children}
         <JsonLd />
+        <FacebookPixel />
+        <noscript>
+          <img
+            height="1"
+            width="1"
+            style={{ display: "none" }}
+            src="https://www.facebook.com/tr?id=1252843462475555&ev=PageView&noscript=1"
+            alt=""
+          />
+        </noscript>
         <Footer />
         <Analytics />
       </body>
