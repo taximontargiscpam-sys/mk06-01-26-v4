@@ -1,349 +1,290 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
-import { CheckCircle2, ShieldCheck, Zap, PhoneCall, Lock, Cpu, TrendingUp, DollarSign, Timer, Mail, FileText, Database, Facebook, Megaphone } from "lucide-react"
-import { Card } from "@/components/ui/card"
+import { useEffect, useState } from "react"
 import { Button } from "@/components/ui/button"
-import Image from "next/image"
-import { FAQSection } from "@/components/faq-section"
+import Link from "next/link"
+import Cal, { getCalApi } from "@calcom/embed-react"
+import { Check, Calendar } from "lucide-react"
 
-function CountdownTimer() {
-    const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 })
-
-    useEffect(() => {
-        const targetDate = new Date("2025-12-31T23:59:59")
-
-        const interval = setInterval(() => {
-            const now = new Date()
-            const difference = targetDate.getTime() - now.getTime()
-
-            if (difference > 0) {
-                const days = Math.floor(difference / (1000 * 60 * 60 * 24))
-                const hours = Math.floor((difference / (1000 * 60 * 60)) % 24)
-                const minutes = Math.floor((difference / 1000 / 60) % 60)
-                const seconds = Math.floor((difference / 1000) % 60)
-                setTimeLeft({ days, hours, minutes, seconds })
-            } else {
-                clearInterval(interval)
-            }
-        }, 1000)
-
-        return () => clearInterval(interval)
-    }, [])
-
-    return (
-        <div className="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-4 bg-gradient-to-r from-blue-900/60 to-indigo-950/60 backdrop-blur-md px-6 py-3 rounded-xl border border-blue-500/30 shadow-[0_0_20px_rgba(37,99,235,0.2)] animate-in slide-in-from-top duration-500">
-            <div className="flex items-center gap-2 text-indigo-300 font-bold uppercase tracking-widest text-xs md:text-sm">
-                <Timer className="w-5 h-5 animate-pulse text-indigo-400" />
-                <span>Offre Agent Vocal Valable jusqu'au 31/12/2025 :</span>
-            </div>
-            <div className="flex gap-3 font-black text-white text-lg md:text-xl font-sans tracking-tight">
-                <div className="bg-black/40 px-2 rounded backdrop-blur-sm border border-white/10">{timeLeft.days}J</div>
-                <span className="opacity-50">:</span>
-                <div className="bg-black/40 px-2 rounded backdrop-blur-sm border border-white/10">{timeLeft.hours.toString().padStart(2, '0')}H</div>
-                <span className="opacity-50">:</span>
-                <div className="bg-black/40 px-2 rounded backdrop-blur-sm border border-white/10">{timeLeft.minutes.toString().padStart(2, '0')}M</div>
-                <span className="opacity-50">:</span>
-                <div className="bg-black/40 px-2 rounded backdrop-blur-sm border border-white/10 text-indigo-400">{timeLeft.seconds.toString().padStart(2, '0')}S</div>
-            </div>
-        </div>
-    )
+// Theme Configuration
+const THEME = {
+    bg: "#06101F",
+    text: "#EAF0FF",
+    accent: "#2D6BFF",
+    border: "rgba(255,255,255,0.12)",
+    muted: "rgba(234,240,255,0.72)",
+    ctaMobile: "#2D6BFF"
 }
 
 export default function ReservationPage() {
-    const calendarSectionRef = useRef<HTMLDivElement>(null)
+    const [showStickyBar, setShowStickyBar] = useState(false)
 
     useEffect(() => {
-        (function (C: any, A: any, L: any) {
-            let p = function (a: any, ar: any) { a.q.push(ar); };
-            let d = C.document;
-            C.Cal = C.Cal || function () {
-                let cal = C.Cal;
-                let ar = arguments;
-                if (!cal.loaded) {
-                    cal.ns = {};
-                    cal.q = cal.q || [];
-                    d.head.appendChild(d.createElement("script")).src = A;
-                    cal.loaded = true;
-                }
-                if (ar[0] === L) {
-                    const api = function () { p(api, arguments); };
-                    const namespace = ar[1];
-                    api.q = api.q || [];
-                    if (typeof namespace === "string") {
-                        cal.ns[namespace] = cal.ns[namespace] || api;
-                        p(cal.ns[namespace], ar);
-                        p(cal, ["initNamespace", namespace]);
-                    } else p(cal, ar);
-                    return;
-                }
-                p(cal, ar);
-            };
-        })(window, "https://app.cal.com/embed/embed.js", "init");
+        (async function () {
+            const cal = await getCalApi()
+            cal("ui", {
+                theme: "dark",
+                styles: { branding: { brandColor: "#000000" } },
+                hideEventTypeDetails: false,
+                layout: "month_view"
+            })
+        })()
 
-        // @ts-ignore
-        Cal("init", "30min", { origin: "https://app.cal.com" });
+        const handleScroll = () => {
+            // Show sticky bar after scrolling past user defined threshold (e.g. 100px)
+            setShowStickyBar(window.scrollY > 100)
+        }
 
-        // @ts-ignore
-        Cal.ns["30min"]("inline", {
-            elementOrSelector: "#my-cal-inline-30min",
-            config: { "layout": "month_view" },
-            calLink: "mkdigital/30min",
-        });
-
-        // @ts-ignore
-        Cal.ns["30min"]("ui", { "cssVarsPerTheme": { "light": { "cal-brand": "#050a30" } }, "hideEventTypeDetails": false, "layout": "month_view" });
+        window.addEventListener("scroll", handleScroll)
+        return () => window.removeEventListener("scroll", handleScroll)
     }, [])
 
     const scrollToCalendar = () => {
-        calendarSectionRef.current?.scrollIntoView({ behavior: 'smooth' });
+        const calendarElement = document.getElementById("calendar")
+        if (calendarElement) {
+            calendarElement.scrollIntoView({ behavior: "smooth" })
+        }
     }
 
     return (
-        <main className="min-h-screen bg-[#050a30] text-white selection:bg-indigo-500/30 font-sans overflow-x-hidden relative">
+        <div className="min-h-screen font-sans selection:bg-blue-500/30" style={{ backgroundColor: THEME.bg, color: THEME.text }}>
 
-            {/* AI TEAM FOOTPRINT - Background Integration */}
-            <div className="fixed bottom-0 right-0 z-0 w-full h-[80vh] pointer-events-none opacity-25 mix-blend-lighten">
-                <div className="relative w-full h-full" style={{ maskImage: 'linear-gradient(to top, black 20%, transparent 100%)' }}>
-                    <Image
-                        src="/robot_team.png"
-                        alt="AI Infrastructure Team"
-                        fill
-                        className="object-cover object-top animate-pulse-slow"
-                        priority
-                    />
-                </div>
-            </div>
-
-            {/* Background Tech Grid */}
-            <div className="fixed inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none z-0"></div>
-
-            {/* Header */}
-            <header className="fixed top-0 w-full p-4 md:p-6 flex flex-col md:flex-row justify-between items-center z-50 bg-[#050a30]/80 backdrop-blur-xl border-b border-white/5 gap-4">
-                <div className="flex w-full md:w-auto justify-between items-center">
-                    <div className="relative w-32 h-10 md:w-36 md:h-12 opacity-100 hover:opacity-80 transition-opacity">
-                        <Image
-                            src="/logo.png"
-                            alt="MKDigital Logo"
-                            fill
-                            className="object-contain object-left"
-                            priority
-                        />
-                    </div>
-                    <Button onClick={scrollToCalendar} size="sm" className="md:hidden bg-white text-black hover:bg-gray-200 font-bold text-xs rounded-full px-4 animate-in fade-in zoom-in duration-300">
+            {/* 1. Header Sticky Custom */}
+            <header className="fixed top-0 left-0 right-0 z-50 border-b backdrop-blur-md bg-[#06101F]/80" style={{ borderColor: THEME.border }}>
+                <div className="container mx-auto px-6 h-16 flex items-center justify-between">
+                    <div className="font-bold tracking-tight text-xl">MK DIGITAL</div>
+                    <Button
+                        onClick={scrollToCalendar}
+                        className="font-medium bg-[#2D6BFF] hover:bg-[#2D6BFF]/90 text-white rounded-full px-6"
+                    >
                         Réserver
                     </Button>
                 </div>
-
-                <div className="w-full md:w-auto flex justify-center md:justify-end">
-                    <CountdownTimer />
-                </div>
             </header>
 
-            <div className="container mx-auto px-4 pt-48 pb-32 max-w-7xl relative z-10">
-                <div className="grid lg:grid-cols-12 gap-12 lg:gap-24 items-start">
+            <main className="pt-24 pb-32 space-y-20 container mx-auto px-6 md:max-w-4xl">
 
-                    {/* LEFT COLUMN: THE SEDUCTION & CONTENT */}
-                    <div className="lg:col-span-7 space-y-20 animate-in fade-in slide-in-from-left-8 duration-700 pb-20">
-
-                        {/* HERO BLOCK */}
-                        <div className="space-y-8 relative text-center flex flex-col items-center pt-8">
-                            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-600/10 border border-blue-500/20 text-blue-400 text-xs font-bold uppercase tracking-widest animate-pulse mb-4">
-                                <Zap className="w-3 h-3" />
-                                Session de Configuration Offerte
-                            </div>
-
-                            <h1 className="text-4xl sm:text-5xl md:text-7xl font-black tracking-tighter leading-[0.95] text-white drop-shadow-2xl mx-auto">
-                                VOTRE AGENT IA <br />
-                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-400 to-cyan-400">
-                                    EST DÉJÀ PRÊT.
-                                </span> <br />
-                                VENEZ L'ACTIVER.
-                            </h1>
-
-                            <p className="text-lg md:text-xl text-indigo-100/90 leading-relaxed font-light max-w-2xl bg-[#050a30]/80 backdrop-blur-md p-6 rounded-2xl border border-white/10 mx-auto text-center shadow-2xl">
-                                Ce n'est pas une simple "démo". C'est une session d'intégration technique. <br />
-                                <strong className="text-white block mt-2 text-xl">Nous allons construire votre Agent Vocal de Niveau 1, le connecter à un numéro 09, et vous le livrer clé en main.</strong>
-                                <span className="block mt-2 text-sm text-gray-400 italic">Sans carte bancaire. Sans engagement. Juste de la pure valeur.</span>
-                            </p>
-                        </div>
-
-                        {/* SECTION 1: THE TANGIBLE GIFT (CONCRETE) */}
-                        <div className="space-y-8">
-                            <div className="flex items-center gap-4 mb-6">
-                                <div className="h-px bg-gradient-to-r from-transparent via-white/20 to-transparent flex-1"></div>
-                                <h3 className="text-2xl font-bold text-white uppercase tracking-widest text-center">Ce que vous obtenez</h3>
-                                <div className="h-px bg-gradient-to-r from-transparent via-white/20 to-transparent flex-1"></div>
-                            </div>
-
-                            <div className="grid gap-4">
-                                <div className="bg-[#0B1238]/80 border border-blue-500/30 rounded-2xl p-6 flex flex-col md:flex-row gap-6 items-center hover:border-blue-500/60 transition-colors group">
-                                    <div className="w-16 h-16 rounded-full bg-blue-900/30 flex items-center justify-center border border-blue-500/30 group-hover:scale-110 transition-transform">
-                                        <Cpu className="w-8 h-8 text-blue-400" />
-                                    </div>
-                                    <div className="flex-1 text-center md:text-left">
-                                        <h4 className="text-xl font-bold text-white">1. Le Moteur IA Personnalisé</h4>
-                                        <p className="text-gray-400 text-sm mt-1">
-                                            Nous ne vous donnons pas un modèle générique. Durant l'appel, nous intégrons vos informations clés (horaires, adresse, site web) et vos règles de transfert. Il assure un accueil parfait, filtre les appels et prend les messages 24/7.
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <div className="bg-[#0B1238]/80 border border-blue-500/30 rounded-2xl p-6 flex flex-col md:flex-row gap-6 items-center hover:border-blue-500/60 transition-colors group">
-                                    <div className="w-16 h-16 rounded-full bg-blue-900/30 flex items-center justify-center border border-blue-500/30 group-hover:scale-110 transition-transform">
-                                        <PhoneCall className="w-8 h-8 text-blue-400" />
-                                    </div>
-                                    <div className="flex-1 text-center md:text-left">
-                                        <h4 className="text-xl font-bold text-white">2. Votre Infrastructure Télécom</h4>
-                                        <p className="text-gray-400 text-sm mt-1">
-                                            Vous repartez avec un <strong>Numéro 09 dédié</strong>. Votre Agent répondra sur cette ligne. Vous pourrez rediriger vos appels ou l'utiliser en direct. Tout est inclus.
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <div className="bg-[#0B1238]/80 border border-blue-500/30 rounded-2xl p-6 flex flex-col md:flex-row gap-6 items-center hover:border-blue-500/60 transition-colors group">
-                                    <div className="w-16 h-16 rounded-full bg-blue-900/30 flex items-center justify-center border border-blue-500/30 group-hover:scale-110 transition-transform">
-                                        <TrendingUp className="w-8 h-8 text-blue-400" />
-                                    </div>
-                                    <div className="flex-1 text-center md:text-left">
-                                        <h4 className="text-xl font-bold text-white">3. Le Crédit de Démarrage</h4>
-                                        <p className="text-gray-400 text-sm mt-1">
-                                            Activation + Crédit de démarrage inclus (minutes limitées). Une fois le crédit consommé, le fonctionnement passe à l'usage. Les conditions exactes vous seront présentées par l'expert pendant le rendez-vous.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* SECTION 2: THE "CATCH" (TRANSPARENCY & TRUST) */}
-                        <div className="bg-gradient-to-br from-indigo-900/20 to-purple-900/20 border border-white/10 rounded-3xl p-8 backdrop-blur-md text-center space-y-6">
-                            <h3 className="text-2xl font-bold text-white">"Pourquoi offrir une technologie si coûteuse ?"</h3>
-                            <p className="text-gray-300 leading-relaxed max-w-3xl mx-auto">
-                                Soyons transparents. L'infrastructure que nous vous offrons (Niveau 1) est une <strong>Protection</strong>. Elle filtre et accueille. <br /><br />
-                                Notre pari est simple : une fois que vous verrez l'efficacité de l'IA pour gérer l'accueil, vous voudrez passer au <strong>Niveau 2 (Growth System)</strong> pour qu'elle fasse de la <strong>Vente Active</strong> (Relance, Closing, Prise de RDV sortante).
-                                <br /><br />
-                                <span className="text-white font-bold underline decoration-blue-500">Nous investissons sur vous aujourd'hui pour gagner votre confiance demain.</span>
-                            </p>
-                        </div>
-
-                        {/* SECTION 3: THE PROCESS */}
-                        <div className="space-y-8">
-                            <h3 className="text-2xl font-bold text-white text-center flex items-center justify-center gap-3">
-                                <Zap className="w-6 h-6 text-yellow-400" />
-                                Comment récupérer votre Agent ?
-                            </h3>
-                            <div className="grid md:grid-cols-3 gap-6 text-center">
-                                <div className="space-y-4 relative">
-                                    <div className="w-12 h-12 mx-auto bg-white text-black font-black text-xl rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(255,255,255,0.5)]">1</div>
-                                    <h5 className="font-bold text-white">Réservez</h5>
-                                    <p className="text-xs text-gray-400">Choisissez un créneau dans le calendrier ci-contre.</p>
-                                </div>
-                                <div className="space-y-4 relative">
-                                    <div className="w-12 h-12 mx-auto bg-white text-black font-black text-xl rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(255,255,255,0.5)]">2</div>
-                                    <h5 className="font-bold text-white">Configurez</h5>
-                                    <p className="text-xs text-gray-400">Notre expert personnalise l'IA avec les informations collectées lors de l'appel.</p>
-                                </div>
-                                <div className="space-y-4 relative">
-                                    <div className="w-12 h-12 mx-auto bg-blue-600 text-white font-black text-xl rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(37,99,235,0.5)] animate-pulse">3</div>
-                                    <h5 className="font-bold text-blue-400">Encaissez</h5>
-                                    <p className="text-xs text-gray-400">Votre numéro est actif. L'Agent commence à travailler.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* SOCIAL PROOF & URGENCY */}
-                        <div className="flex flex-col items-center gap-4 pt-8 border-t border-white/10 opacity-90">
-                            <div className="flex -space-x-4">
-                                <div className="w-12 h-12 rounded-full bg-white border-2 border-indigo-50 border-opacity-10 flex items-center justify-center shadow-xl z-30 p-2 overflow-hidden">
-                                    <Image src="/images/logos/gmail.png" alt="Gmail" width={40} height={40} className="object-contain w-full h-full" />
-                                </div>
-                                <div className="w-12 h-12 rounded-full bg-white border-2 border-indigo-50 border-opacity-10 flex items-center justify-center shadow-xl z-20 p-2 overflow-hidden">
-                                    <Image src="/images/logos/notion.png" alt="Notion" width={40} height={40} className="object-contain w-full h-full" />
-                                </div>
-                                <div className="w-12 h-12 rounded-full bg-white border-2 border-indigo-50 border-opacity-10 flex items-center justify-center shadow-xl z-10 p-2 overflow-hidden">
-                                    <Image src="/images/logos/google_ads.png" alt="Google Ads" width={40} height={40} className="object-contain w-full h-full" />
-                                </div>
-                                <div className="w-12 h-12 rounded-full bg-white border-2 border-indigo-50 border-opacity-10 flex items-center justify-center shadow-xl z-0 p-2 overflow-hidden">
-                                    <Image src="/images/logos/whatsapp.png" alt="WhatsApp" width={40} height={40} className="object-contain w-full h-full" />
-                                </div>
-                                <div className="w-12 h-12 rounded-full bg-white border-2 border-indigo-50 border-opacity-10 flex items-center justify-center shadow-xl -z-10 p-2 overflow-hidden">
-                                    <Image src="/images/logos/calendly.png" alt="Calendly" width={40} height={40} className="object-contain w-full h-full" />
-                                </div>
-                            </div>
-                            <div className="text-center">
-                                <span className="text-white font-bold block text-lg">Offre limitée jusqu'au 31 décembre 2025.</span>
-                            </div>
-                        </div>
-
+                {/* 2. Hero Section */}
+                <section id="hero" className="text-center space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-700">
+                    <div className="inline-block px-4 py-1 rounded-full text-sm font-medium bg-blue-500/10 text-blue-400 border border-blue-500/20">
+                        Session d’activation offerte
                     </div>
 
-                    {/* RIGHT COLUMN: THE CLOSING (CALENDAR) */}
-                    <div className="lg:col-span-5 relative mt-8 lg:mt-0" ref={calendarSectionRef}>
-                        <div className="lg:sticky lg:top-32 space-y-6">
+                    <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight leading-tight">
+                        On vous livre votre Agent IA vocal.<br />
+                        <span className="text-blue-400">Avec votre numéro 09.</span>
+                    </h1>
 
-                            {/* PRE-CALENDAR INSTRUCTION - CRITICAL */}
-                            <div className="bg-gradient-to-br from-amber-500/10 to-orange-600/10 border border-amber-500/40 rounded-2xl p-6 backdrop-blur-md relative overflow-hidden shadow-[0_0_40px_rgba(245,158,11,0.1)]">
-                                <div className="absolute top-0 right-0 p-4 opacity-10">
-                                    <PhoneCall className="w-20 h-20 text-amber-500" />
-                                </div>
-                                <div className="relative z-10 space-y-3">
-                                    <div className="flex items-center gap-2 text-amber-500 font-bold uppercase tracking-wider text-xs mb-1">
-                                        <div className="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></div>
-                                        Action Requise
-                                    </div>
-                                    <h4 className="text-white font-bold text-lg leading-tight">
-                                        Initialisation de l'Agent Vocal
-                                    </h4>
-                                    <p className="text-sm font-medium text-gray-300 leading-relaxed">
-                                        Pour activer votre Agent Gratuit, entrez votre <strong>VRAI numéro de mobile</strong> lors de la réservation.
-                                    </p>
-                                    <div className="bg-black/30 rounded-lg p-3 text-xs text-amber-200/80 border border-amber-500/20 flex gap-2">
-                                        <Zap className="w-4 h-4 shrink-0" />
-                                        Notre IA vous appellera automatiquement sous 60 secondes pour calibrer le système.
-                                    </div>
-                                    <p className="text-[10px] text-gray-400 mt-1 italic text-center">
-                                        En réservant, vous acceptez d'être rappelé automatiquement pour préparer l'activation.
-                                    </p>
-                                </div>
+                    <p className="text-lg md:text-xl leading-relaxed max-w-2xl mx-auto" style={{ color: THEME.muted }}>
+                        Une seule étape : réservez un créneau. Après réservation, vous êtes rappelé automatiquement pour préparer l’activation. Ensuite : activation + test en direct.
+                    </p>
+
+                    <div className="flex flex-col items-center gap-3 py-4">
+                        {["Agent IA vocal Niveau 1 activé", "Numéro 09 dédié inclus", "Rappel automatique après réservation"].map((item, i) => (
+                            <div key={i} className="flex items-center gap-2">
+                                <Check className="w-5 h-5 text-green-400" />
+                                <span>{item}</span>
                             </div>
-
-                            {/* CALENDAR WRAPPER */}
-                            <Card className="bg-[#0B1238]/50 backdrop-blur-sm rounded-2xl overflow-hidden shadow-2xl border border-white/10 w-full relative h-[720px]">
-                                {/* Mobile Header for extra clarity */}
-                                <div className="md:hidden bg-[#0A0F1E] p-4 text-center border-b border-gray-800">
-                                    <h3 className="text-white font-bold text-sm">Zone de Réservation Sécurisée</h3>
-                                </div>
-
-                                <div className="h-full w-full bg-transparent relative">
-                                    <div style={{ width: "100%", height: "100%", overflow: "scroll", WebkitOverflowScrolling: "touch" }} id="my-cal-inline-30min"></div>
-                                </div>
-
-
-                            </Card>
-
-                            {/* SECURITY BADGES */}
-                            <div className="grid grid-cols-2 gap-4 text-center">
-                                <div className="bg-[#050a30] rounded-lg p-3 border border-indigo-500/20 shadow-lg relative z-20">
-                                    <Lock className="w-4 h-4 text-blue-500 mx-auto mb-1" />
-                                    <p className="text-[10px] text-gray-400 font-bold uppercase">SSL Encrypted</p>
-                                </div>
-                                <div className="bg-[#050a30] rounded-lg p-3 border border-indigo-500/20 shadow-lg relative z-20">
-                                    <DollarSign className="w-4 h-4 text-blue-500 mx-auto mb-1" />
-                                    <p className="text-[10px] text-gray-400 font-bold uppercase">0% Frais Cachés</p>
-                                </div>
-                            </div>
-
-                        </div>
+                        ))}
                     </div>
 
-                </div>
+                    <div className="text-sm space-y-1 opacity-60">
+                        <p>Réservé aux entreprises (dirigeants / équipes).</p>
+                        <p>Offre valable jusqu’au 31/12/2025.</p>
+                    </div>
+
+                    <div className="pt-4 flex flex-col sm:flex-row gap-4 justify-center">
+                        <Button
+                            onClick={scrollToCalendar}
+                            size="lg"
+                            className="w-full sm:w-auto bg-[#2D6BFF] hover:bg-[#2D6BFF]/90 text-white h-14 rounded-full text-lg font-bold px-8 shadow-lg shadow-blue-900/20"
+                        >
+                            Réserver un créneau d’activation
+                        </Button>
+                        <Button
+                            asChild
+                            variant="outline"
+                            size="lg"
+                            className="w-full sm:w-auto h-14 rounded-full text-lg border-white/10 bg-white/5 hover:bg-white/10 text-white"
+                        >
+                            <a href="https://cal.com/mkdigital/30min" target="_blank" rel="noopener noreferrer">
+                                Ouvrir le calendrier
+                            </a>
+                        </Button>
+                    </div>
+                </section>
+
+                {/* 3. Calendar Section */}
+                <section id="calendar" className="scroll-mt-24 space-y-8">
+                    <div className="text-center space-y-4">
+                        <h2 className="text-3xl font-bold">Réserver votre créneau d’activation</h2>
+                        <p className="text-sm text-yellow-500/90 font-medium bg-yellow-500/10 p-3 rounded-lg inline-block border border-yellow-500/20">
+                            ⚠️ En réservant, vous acceptez d’être rappelé automatiquement pour préparer l’activation.
+                        </p>
+                    </div>
+
+                    <div className="bg-white rounded-xl overflow-hidden shadow-2xl shadow-blue-900/10 border border-white/5 min-h-[600px]">
+                        <Cal
+                            namespace="30min"
+                            calLink="mkdigital/30min"
+                            style={{ width: "100%", height: "100%", overflow: "scroll" }}
+                            config={{ layout: 'month_view' }}
+                        />
+                    </div>
+
+                    {/* Fallback */}
+                    <div className="bg-white/5 border border-white/10 rounded-xl p-6 text-center space-y-4">
+                        <h3 className="font-semibold">Si le calendrier ne s’affiche pas</h3>
+                        <div className="text-sm opacity-70">
+                            <p>Cliquez sur “Ouvrir le calendrier” ou copiez le lien ci-dessous.</p>
+                        </div>
+                        <code className="block bg-black/30 p-2 rounded text-xs break-all selection:bg-blue-500/50">
+                            https://cal.com/mkdigital/30min
+                        </code>
+                        <Button
+                            asChild
+                            className="bg-white text-black hover:bg-gray-100 w-full md:w-auto"
+                        >
+                            <a href="https://cal.com/mkdigital/30min" target="_blank" rel="noopener noreferrer">
+                                Ouvrir le calendrier
+                            </a>
+                        </Button>
+                    </div>
+
+                    <div className="flex justify-center gap-6 text-sm opacity-50">
+                        <span>🔒 Sans carte bancaire</span>
+                        <span>✨ Sans engagement</span>
+                    </div>
+                </section>
+
+                {/* 4. Deliverables */}
+                <section id="deliverables" className="space-y-8">
+                    <div className="text-center">
+                        <h2 className="text-2xl font-bold">Ce qui est livré pendant la session</h2>
+                        <p className="text-muted-foreground mt-2">Simple. Propre. Utilisable immédiatement.</p>
+                    </div>
+
+                    <div className="grid md:grid-cols-2 gap-4">
+                        {[
+                            { title: "Votre numéro 09", text: "Une ligne dédiée prête à être utilisée sur votre site, Google Business, pubs, ou en redirection." },
+                            { title: "Agent IA vocal Niveau 1", text: "Accueil, présentation claire, compréhension de la demande, orientation simple." },
+                            { title: "Discours calibré", text: "Une présentation courte et crédible (zone, horaires, activité) — sans blabla." },
+                            { title: "Test en direct", text: "On teste et on ajuste immédiatement pour valider le comportement." }
+                        ].map((item, i) => (
+                            <div key={i} className="p-6 rounded-xl border border-white/10 bg-white/5 hover:border-blue-500/30 transition-colors">
+                                <h3 className="font-bold text-lg mb-2 text-white">{item.title}</h3>
+                                <p className="text-sm leading-relaxed" style={{ color: THEME.muted }}>{item.text}</p>
+                            </div>
+                        ))}
+                    </div>
+                </section>
+
+                {/* 5. Fit (Two Columns) */}
+                <section id="fit" className="grid md:grid-cols-2 gap-12 py-8 border-y border-white/5">
+                    <div className="space-y-6">
+                        <h3 className="text-xl font-bold text-red-400">Si aujourd’hui…</h3>
+                        <ul className="space-y-3">
+                            {[
+                                "Vous perdez des demandes quand vous êtes occupé",
+                                "Vous répondez trop tard (même avec la meilleure volonté)",
+                                "Votre accueil varie selon la charge",
+                                "Vous perdez du temps sur des appels non utiles"
+                            ].map((item, i) => (
+                                <li key={i} className="flex gap-3 text-sm opacity-80">
+                                    <span className="text-red-400 font-bold">•</span> {item}
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                    <div className="space-y-6">
+                        <h3 className="text-xl font-bold text-green-400">Alors cette activation…</h3>
+                        <ul className="space-y-3">
+                            {[
+                                "Stabilise votre accueil immédiatement",
+                                "Rend le premier contact plus propre et crédible",
+                                "Crée une base sur laquelle on peut ajouter des compétences",
+                                "Réduit la perte liée au traitement"
+                            ].map((item, i) => (
+                                <li key={i} className="flex gap-3 text-sm opacity-80">
+                                    <span className="text-green-400 font-bold">•</span> {item}
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                </section>
+
+                {/* 6. Next Steps */}
+                <section className="bg-gradient-to-br from-blue-900/20 to-transparent p-8 rounded-2xl border border-blue-500/20 text-center space-y-6">
+                    <h2 className="text-2xl font-bold">Après l’activation</h2>
+                    <p className="opacity-80 max-w-lg mx-auto">Ce que vous activez ici est la brique de base. Ensuite, si vous le souhaitez :</p>
+                    <ul className="text-left max-w-md mx-auto space-y-2 text-sm opacity-70 list-disc pl-5">
+                        <li>Ajouter des compétences (qualification, RDV, relances…) selon vos besoins</li>
+                        <li>Ou raccorder l’agent à une infrastructure complète (acquisition → conversion → suivi)</li>
+                    </ul>
+                    <Button onClick={scrollToCalendar} className="bg-[#2D6BFF] hover:bg-[#2D6BFF]/90 text-white rounded-full px-8">
+                        Réserver un créneau
+                    </Button>
+                </section>
+
+                {/* 7. FAQ */}
+                <section id="faq" className="space-y-8">
+                    <h2 className="text-2xl font-bold text-center">Questions rapides</h2>
+                    <div className="space-y-4">
+                        {[
+                            { q: "C’est une démo ?", a: "Non. C’est une activation technique : configuration, connexion du 09, test, livraison." },
+                            { q: "Vous travaillez partout en France ?", a: "Oui." },
+                            { q: "Vous êtes basés où ?", a: "À Asnières." },
+                            { q: "Je peux réserver si je suis un particulier ?", a: "Non. Cette session est réservée aux entreprises." }
+                        ].map((item, i) => (
+                            <div key={i} className="bg-white/5 rounded-lg p-6 hover:bg-white/10 transition-colors">
+                                <h3 className="font-bold text-white mb-2">{item.q}</h3>
+                                <p className="text-sm opacity-70">{item.a}</p>
+                            </div>
+                        ))}
+                    </div>
+                </section>
+
+                {/* 8. Final CTA */}
+                <section className="text-center space-y-6 pt-12 pb-24">
+                    <h2 className="text-3xl md:text-5xl font-black tracking-tight text-white">Réservez. On active. On livre.</h2>
+                    <p className="text-xl opacity-60">Une session courte. Un résultat clair.</p>
+                    <Button
+                        onClick={scrollToCalendar}
+                        size="lg"
+                        className="bg-[#2D6BFF] hover:bg-[#2D6BFF]/90 text-white h-16 rounded-full text-xl font-bold px-12 shadow-2xl shadow-blue-500/20 scale-105 hover:scale-110 transition-transform"
+                    >
+                        Réserver maintenant
+                    </Button>
+                </section>
+
+                {/* Footer */}
+                <footer className="text-center text-xs opacity-40 space-y-2 pb-24 border-t border-white/5 pt-12">
+                    <p className="font-bold">MK DIGITAL</p>
+                    <p>Réservé aux entreprises.</p>
+                    <p>En réservant, vous acceptez d’être rappelé automatiquement pour préparer l’activation.</p>
+                </footer>
+
+            </main>
+
+            {/* Sticky Mobile Bar */}
+            <div className={`fixed bottom-0 left-0 right-0 p-4 bg-[#06101F] border-t border-white/10 flex gap-3 md:hidden transition-transform duration-300 z-50 ${showStickyBar ? 'translate-y-0' : 'translate-y-full'}`}>
+                <Button
+                    asChild
+                    variant="outline"
+                    className="flex-1 border-white/10 bg-white/5 text-white"
+                >
+                    <a href="https://cal.com/mkdigital/30min" target="_blank" rel="noopener noreferrer">
+                        Ouvrir
+                    </a>
+                </Button>
+                <Button
+                    onClick={scrollToCalendar}
+                    className="flex-[2] bg-[#2D6BFF] text-white font-bold"
+                >
+                    Réserver
+                </Button>
             </div>
 
-            {/* FAQ Section */}
-            <FAQSection />
-
-            {/* Tech Decoration Footer */}
-            <div className="fixed bottom-0 left-0 w-full h-1 bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-600 opacity-50 z-50 pointer-events-none"></div>
-        </main>
+        </div>
     )
 }
