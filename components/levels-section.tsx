@@ -5,8 +5,10 @@ import { Button } from "@/components/ui/button"
 import { CheckCircle2 } from "lucide-react"
 import { motion } from "framer-motion"
 import Link from "next/link"
+import { useLeadModal } from "@/components/lead-modal-context"
 
 export function LevelsSection() {
+    const { openModal } = useLeadModal()
     return (
         <section className="py-24 bg-background relative">
             <div className="container mx-auto px-6">
@@ -74,8 +76,8 @@ export function LevelsSection() {
                                         </div>
                                     </div>
                                     <div className="pt-4">
-                                        <Button variant="link" asChild className="text-primary p-0 h-auto font-bold hover:text-primary/80 flex items-center gap-2">
-                                            <Link href="https://cal.com/mkdigital/30min" target="_blank" rel="noopener noreferrer">Prendre rendez-vous <span className="text-lg">→</span></Link>
+                                        <Button onClick={openModal} variant="link" className="text-primary p-0 h-auto font-bold hover:text-primary/80 flex items-center gap-2">
+                                            Prendre rendez-vous <span className="text-lg">→</span>
                                         </Button>
                                     </div>
                                 </div>

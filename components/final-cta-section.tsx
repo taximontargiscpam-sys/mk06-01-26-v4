@@ -3,8 +3,10 @@
 import { Button } from "@/components/ui/button"
 import { Calendar, Phone } from "lucide-react"
 import Link from "next/link"
+import { useLeadModal } from "@/components/lead-modal-context"
 
 export function FinalCTASection() {
+    const { openModal } = useLeadModal()
     return (
         <section className="py-24 bg-primary relative overflow-hidden">
             {/* Background patterns */}
@@ -46,14 +48,12 @@ export function FinalCTASection() {
 
                     <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                         <Button
-                            asChild
+                            onClick={openModal}
                             size="lg"
                             className="bg-white text-primary hover:bg-white/90 text-lg px-8 h-14 shadow-2xl rounded-full font-bold"
                         >
-                            <Link href="https://cal.com/mkdigital/30min" target="_blank">
-                                <Calendar className="mr-2 w-5 h-5" />
-                                Réserver mon créneau
-                            </Link>
+                            <Calendar className="mr-2 w-5 h-5" />
+                            Réserver mon créneau
                         </Button>
                     </div>
 

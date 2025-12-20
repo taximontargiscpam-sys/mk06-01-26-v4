@@ -69,7 +69,7 @@ export default function ContactPage() {
       // Redirection après 2 sec
       setTimeout(() => {
         window.location.href =
-          "https://cal.com/mkdigital/30min"
+          "/reservation"
       }, 2000)
     } catch (error) {
       console.error("❌ SERVER ERROR:", error)
@@ -342,7 +342,7 @@ export default function ContactPage() {
                   className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
                 >
                   <a
-                    href="https://cal.com/mkdigital/30min"
+                    href="/reservation"
                     target="_blank"
                     rel="noopener noreferrer"
                   >

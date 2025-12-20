@@ -10,7 +10,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { FloatingCTA } from "@/components/floating-cta"
 
-const CTA_URL = "https://cal.com/mkdigital/30min"
+const CTA_URL = "/reservation"
 
 const visionPillars = [
   {

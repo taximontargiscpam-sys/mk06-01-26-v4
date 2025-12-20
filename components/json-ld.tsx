@@ -3,7 +3,7 @@ export default function JsonLd() {
         "@context": "https://schema.org",
         "@graph": [
             {
-                "@type": "Organization",
+                "@type": "LocalBusiness",
                 "@id": "https://mkdigitalparis.com/#organization",
                 "name": "MKDigital",
                 "url": "https://mkdigitalparis.com",
@@ -13,11 +13,25 @@ export default function JsonLd() {
                     "width": 800,
                     "height": 600
                 },
+                "image": "https://mkdigitalparis.com/logo.png",
                 "description": "Leader Français de l'Intégration d'Agents IA Vocaux pour TPE & PME. Automatisation de standard et qualification de prospects.",
+                "priceRange": "€€",
                 "address": {
                     "@type": "PostalAddress",
                     "addressLocality": "Paris",
                     "addressCountry": "FR"
+                },
+                "openingHoursSpecification": {
+                    "@type": "OpeningHoursSpecification",
+                    "dayOfWeek": [
+                        "Monday",
+                        "Tuesday",
+                        "Wednesday",
+                        "Thursday",
+                        "Friday"
+                    ],
+                    "opens": "09:00",
+                    "closes": "18:00"
                 },
                 "contactPoint": {
                     "@type": "ContactPoint",
@@ -85,6 +99,23 @@ export default function JsonLd() {
                             "@type": "Answer",
                             "text": "L'agent IA ne remplace pas l'humain, il l'augmente. Il gère 100% des tâches répétitives (appels manqués, prise de RDV simple, FAQ) pour permettre à votre équipe de se concentrer sur les cas complexes et la relation client à haute valeur ajoutée."
                         }
+                    }
+                ]
+            },
+            {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "Accueil",
+                        "item": "https://mkdigitalparis.com"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "name": "Réservation",
+                        "item": "https://mkdigitalparis.com/reservation"
                     }
                 ]
             }

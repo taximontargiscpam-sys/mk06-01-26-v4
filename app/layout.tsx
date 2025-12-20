@@ -20,7 +20,12 @@ export const metadata: Metadata = {
     "Infrastructure de Revenus",
     "Prospection Automatique",
     "MKDigital",
-    "Solution IA Entreprise"
+    "Solution IA Entreprise",
+    "Standardiste IA Paris",
+    "Automatisation Rétention Client",
+    "Agent Vocal Immobilier",
+    "Secrétariat Téléphonique 24/7",
+    "Intelligence Artificielle Vocale France"
   ],
   authors: [{ name: "MKDigital" }],
   openGraph: {
@@ -65,6 +70,9 @@ import { Footer } from "@/components/footer"
 import JsonLd from "@/components/json-ld"
 import { Navigation } from "@/components/navigation"
 import { FacebookPixel } from "@/components/facebook-pixel"
+import { Clarity } from "@/components/clarity"
+import { LeadModalProvider } from "@/components/lead-modal-context"
+import { LeadCaptureModal } from "@/components/lead-capture-modal"
 
 // ... (other imports)
 
@@ -76,20 +84,24 @@ export default function RootLayout({
   return (
     <html className="my-0 py-[-0px] py-[-10px]" lang="fr">
       <body className={`${inter.className} font-sans antialiased`}>
-        <Navigation />
-        {children}
-        <JsonLd />
-        <FacebookPixel />
-        <noscript>
-          <img
-            height="1"
-            width="1"
-            style={{ display: "none" }}
-            src="https://www.facebook.com/tr?id=1252843462475555&ev=PageView&noscript=1"
-            alt=""
-          />
-        </noscript>
-        <Footer />
+        <LeadModalProvider>
+          <Navigation />
+          {children}
+          <LeadCaptureModal />
+          <JsonLd />
+          <FacebookPixel />
+          <Clarity />
+          <noscript>
+            <img
+              height="1"
+              width="1"
+              style={{ display: "none" }}
+              src="https://www.facebook.com/tr?id=1252843462475555&ev=PageView&noscript=1"
+              alt=""
+            />
+          </noscript>
+          <Footer />
+        </LeadModalProvider>
         <Analytics />
       </body>
     </html>

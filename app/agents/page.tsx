@@ -26,7 +26,7 @@ import Link from "next/link"
 import { PowerCTA } from "@/components/power-cta"
 import { FloatingCTA } from "@/components/floating-cta"
 
-const CTA_URL = "https://cal.com/mkdigital/30min"
+const CTA_URL = "/reservation"
 
 // Liste enrichie avec les compétences concurrentes + suppression du Closer
 const agents = [
@@ -444,7 +444,7 @@ export default function AgentsPage() {
             <p className="text-foreground/60 mb-4">Vous ne trouvez pas la compétence exacte ?</p>
             <Button asChild variant="ghost" className="text-primary hover:text-primary/80 hover:bg-primary/5 cursor-pointer">
               <a
-                href="https://cal.com/mkdigital/30min"
+                href="/reservation"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -532,7 +532,7 @@ export default function AgentsPage() {
               </div>
               <Button asChild size="lg" className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-primary-foreground">
                 <a
-                  href="https://cal.com/mkdigital/30min"
+                  href="/reservation"
                   target="_blank"
                   rel="noopener noreferrer"
                 >

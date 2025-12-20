@@ -3,8 +3,10 @@
 import Link from "next/link"
 import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { useLeadModal } from "@/components/lead-modal-context"
 
 export function Footer() {
+    const { openModal } = useLeadModal()
     return (
         <footer className="bg-background border-t border-white/5 pt-16 pb-8">
             <div className="container mx-auto px-6">
@@ -144,8 +146,8 @@ export function Footer() {
                         <p className="text-sm text-muted-foreground">
                             Vérifiez votre éligibilité à l'installation de notre infrastructure.
                         </p>
-                        <Button className="w-full bg-white text-primary hover:bg-white/90" asChild>
-                            <Link href="/reservation">Réserver un audit</Link>
+                        <Button onClick={openModal} className="w-full bg-white text-primary hover:bg-white/90">
+                            Réserver un audit
                         </Button>
                     </div>
                 </div>

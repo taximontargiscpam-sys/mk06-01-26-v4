@@ -5,6 +5,7 @@ import { Shield, Brain, Diamond } from "lucide-react"
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
+import { PowerCTA } from "@/components/power-cta"
 
 export function GrowthSystemSection() {
     return (
@@ -115,10 +116,15 @@ export function GrowthSystemSection() {
                     </motion.div>
                 </motion.div>
 
-                <div className="mt-16 text-center">
+                <div className="mt-16 text-center flex flex-col items-center gap-12">
                     <Button asChild size="lg" className="rounded-full px-8 bg-transparent hover:bg-white/5 text-white border border-white/20">
                         <Link href="/services">Explorer le Growth System</Link>
                     </Button>
+
+                    {/* Embedded Lead Form / CTA */}
+                    <div className="flex justify-center w-full">
+                        <PowerCTA text="Obtenir mon Agent Vocal Gratuit" subtext="Offre valable jusqu'au 31/12/2025" />
+                    </div>
                 </div>
             </div>
         </section>

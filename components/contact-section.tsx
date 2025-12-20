@@ -4,8 +4,10 @@ import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { Mail, Calendar } from "lucide-react"
 import Image from "next/image"
+import { useLeadModal } from "@/components/lead-modal-context"
 
 export function ContactSection() {
+  const { openModal } = useLeadModal()
   return (
     <section id="contact" className="py-32 relative">
       <div className="absolute inset-0 bg-gradient-to-t from-primary/10 via-transparent to-transparent" />
@@ -25,19 +27,14 @@ export function ContactSection() {
 
                 <div className="space-y-4 pt-4">
                   <Button
-                    asChild
+                    onClick={openModal}
                     size="lg"
                     className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-primary-foreground"
                   >
-                    <a
-                      href="https://cal.com/mkdigital/30min"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2"
-                    >
+                    <div className="flex items-center gap-2">
                       <Calendar className="w-5 h-5" />
                       Réserver un entretien
-                    </a>
+                    </div>
                   </Button>
 
                   <div className="flex items-center gap-2 text-foreground/60">

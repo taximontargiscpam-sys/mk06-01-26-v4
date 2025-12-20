@@ -11,7 +11,7 @@ import Link from "next/link"
 import { FloatingCTA } from "@/components/floating-cta"
 import { PowerCTA } from "@/components/power-cta"
 
-const CTA_URL = "https://cal.com/mkdigital/30min"
+const CTA_URL = "/reservation"
 
 const metrics = [
   { icon: Star, value: "1 Agent IA", label: "Remplace une équipe entière pour gérer votre entreprise", color: "text-primary" },

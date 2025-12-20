@@ -7,11 +7,15 @@ import Image from "next/image"
 import { usePathname } from "next/navigation"
 import { Menu, ArrowRight } from "lucide-react"
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet"
+import { useLeadModal } from "@/components/lead-modal-context"
 
 export function Navigation() {
   const [scrolled, setScrolled] = useState(false)
   const [isOpen, setIsOpen] = useState(false)
   const pathname = usePathname()
+  const { openModal } = useLeadModal()
+  // ... imports need to be added separately or I can rewrite the import block too but replacing whole file is risky if large. I'll replace the distinct blocks.
+
 
   useEffect(() => {
     const handleScroll = () => {
@@ -71,10 +75,8 @@ export function Navigation() {
               {link.label}
             </Link>
           ))}
-          <Button asChild className="bg-primary hover:bg-primary/90 text-primary-foreground">
-            <a href="https://cal.com/mkdigital/30min" target="_blank" rel="noopener noreferrer">
-              Réserver un entretien
-            </a>
+          <Button onClick={openModal} className="bg-primary hover:bg-primary/90 text-primary-foreground">
+            Réserver un entretien
           </Button>
         </div>
 
@@ -109,10 +111,8 @@ export function Navigation() {
                   ))}
                 </div>
                 <div className="p-6 border-t border-white/5 bg-black/20">
-                  <Button asChild className="bg-primary hover:bg-primary/90 text-primary-foreground w-full h-14 text-lg rounded-xl shadow-lg shadow-blue-900/20">
-                    <a href="https://cal.com/mkdigital/30min" target="_blank" rel="noopener noreferrer">
-                      Réserver un entretien
-                    </a>
+                  <Button onClick={openModal} className="bg-primary hover:bg-primary/90 text-primary-foreground w-full h-14 text-lg rounded-xl shadow-lg shadow-blue-900/20">
+                    Réserver un entretien
                   </Button>
                 </div>
               </div>

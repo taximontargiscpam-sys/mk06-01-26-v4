@@ -4,6 +4,7 @@ import { Card } from "@/components/ui/card"
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
+import { InlineLeadForm } from "@/components/inline-lead-form"
 
 export function ProblemSection() {
     return (
@@ -50,6 +51,10 @@ export function ProblemSection() {
                             <p>
                                 Il faut une structure capable de <span className="font-bold text-white">capturer, qualifier et convertir</span> en continu, même quand vous êtes occupé.
                             </p>
+
+                            <div className="pt-4">
+                                <InlineLeadForm />
+                            </div>
                         </div>
 
                         <Card className="p-10 bg-gradient-to-br from-card to-background border-white/10 shadow-2xl relative group overflow-hidden">
