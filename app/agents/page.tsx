@@ -387,7 +387,7 @@ export default function AgentsPage() {
               </div>
               <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-background border border-border shadow-sm">
                 <CheckCircle2 className="w-4 h-4 text-green-500" />
-                <span>ROI moyen 340%</span>
+                <span>Zéro appel manqué</span>
               </div>
               <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-background border border-border shadow-sm">
                 <CheckCircle2 className="w-4 h-4 text-green-500" />
