@@ -129,7 +129,7 @@ export default function ReservationPage() {
                             </h1>
 
                             <p className="text-lg text-slate-600 leading-relaxed max-w-lg animate-in slide-in-from-bottom-5 duration-700 delay-100 fade-in">
-                                Votre infrastructure de traitement des appels entrants. L'Agent décroche instantanément, qualifie chaque demande et vous transmet un compte-rendu structuré par email.
+                                L'Agent IA Vocal Niveau 1 est la première brique de votre infrastructure. Il décroche instantanément, qualifie chaque demande et vous transmet un compte-rendu structuré par email. Il devient votre standardiste dédié pour le traitement de vos appels entrants.
                             </p>
 
                             {/* Features */}
