@@ -42,6 +42,13 @@ export function InlineLeadForm() {
             const { error } = await Promise.race([insertPromise, timeoutPromise]) as any
             if (error) throw error
 
+            // Track Lead Event
+            // @ts-ignore
+            if (typeof window !== 'undefined' && window.fbq) {
+                // @ts-ignore
+                window.fbq('track', 'Lead')
+            }
+
             setIsSuccess(true)
         } catch (error: any) {
             console.error('Error submitting lead:', error)

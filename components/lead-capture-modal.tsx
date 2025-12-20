@@ -56,6 +56,14 @@ export function LeadCaptureModal() {
             }
 
             console.log("Success!")
+
+            // Track Lead Event
+            // @ts-ignore
+            if (typeof window !== 'undefined' && window.fbq) {
+                // @ts-ignore
+                window.fbq('track', 'Lead')
+            }
+
             setIsSuccess(true)
 
             setTimeout(() => {

@@ -25,9 +25,9 @@ export function Footer() {
                                 <Phone className="w-4 h-4 text-primary" />
                                 <span>0939030176</span>
                             </a>
-                            <a href="mailto:contact@mkdigital.com" className="flex items-center gap-3 text-sm text-muted-foreground hover:text-primary transition-colors">
+                            <a href="mailto:contact@mkdigitalparis.com" className="flex items-center gap-3 text-sm text-muted-foreground hover:text-primary transition-colors">
                                 <Mail className="w-4 h-4 text-primary" />
-                                <span>contact@mkdigital.com</span>
+                                <span>contact@mkdigitalparis.com</span>
                             </a>
                             <div className="flex items-center gap-3 text-sm text-muted-foreground">
                                 <MapPin className="w-4 h-4 text-primary" />
