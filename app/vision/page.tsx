@@ -225,11 +225,11 @@ export default function VisionPage() {
                 {/* Liste des points forts */}
                 {[
                   { title: "Déploiement en 48h", desc: "Pas de projet IT de 6 mois. Vous êtes opérationnel en 2 jours." },
-                  { title: "ROI garanti sous 60 jours", desc: "Si vous n'êtes pas rentable en 2 mois, nous travaillons gratuitement." },
+                  { title: "ROI constaté sous 60 jours", desc: "La majorité de nos clients rentabilisent l'installation dès le deuxième mois." },
                   { title: "Zéro complexité technique", desc: "Pas besoin d'équipe IT. Nos agents s'intègrent à vos outils existants." },
                   { title: "Amélioration continue", desc: "Votre agent IA s'améliore chaque jour sans intervention." },
                   { title: "Support expert dédié", desc: "Une équipe d'experts IA disponible pour vous accompagner." },
-                  { title: "Conformité garantie", desc: "RGPD, ISO 27001, hébergement en Europe. Vos données sont protégées." },
+                  { title: "Conformité & Sécurité", desc: "Hébergement certifié ISO 27001 (AWS/Supabase) en Europe. Vos données sont protégées." },
                 ].map((item, idx) => (
                   <div key={idx} className="flex items-start gap-4 p-4 rounded-lg hover:bg-white/5 transition-colors">
                     <div className="w-2 h-2 bg-primary rounded-full flex-shrink-0 mt-2.5 shadow-[0_0_10px_rgba(37,99,235,0.8)]" />

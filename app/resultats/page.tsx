@@ -52,10 +52,10 @@ const caseStudies = [
 ]
 
 const globalStats = [
-  { label: "Des appels pris en charge, plus aucun appel envoyé sur répondeur.", value: "100%" },
-  { label: "Heures économisées chaque semaine sur la gestion des appels. Votre équipe se concentre sur le business.", value: "+10" },
-  { label: "Appels gérés en simultané sans saturation du standard.", value: "+100" },
-  { label: "De salaires et de charges URSSAF liés au standard.", value: "0€" },
+  { label: "Des appels pris en charge (vs 20-30% perdus habituellement).", value: "100%" },
+  { label: "Heures économisées/semaine sur la qualification. Votre équipe se concentre sur la production.", value: "+10" },
+  { label: "Appels gérés en simultané. Fini la tonalité occupée.", value: "+100" },
+  { label: "Dépensés en salaire & charges pour ce standard (vs ~2800€/mois pour une humaine).", value: "0€" },
 ]
 
 // --- NOUVEAUX COMPOSANTS CTA "HIGH CONVERSION" ---

@@ -21,7 +21,7 @@ export default function MentionsLegales() {
                             <p>Le site <strong>MKDigital</strong> (ci-après "le Site"), accessible à l’adresse mkdigitalparis.com, est édité par :</p>
                             <ul className="mt-4 space-y-2 list-disc list-inside text-slate-400">
                                 <li><strong>Raison sociale :</strong> MKDigital (Micro-entreprise)</li>
-                                <li><strong>Siège social :</strong> Paris, France</li>
+                                <li><strong>Siège social :</strong> 2 Quai Aulagnier, 92600 Asnières-sur-Seine</li>
                                 <li><strong>Email :</strong> contact@mkdigitalparis.com</li>
                                 <li><strong>Téléphone :</strong> 09 39 03 01 76</li>
                                 <li><strong>Directeur de la publication :</strong> Mohamed Amir</li>
