@@ -240,6 +240,20 @@ export default function ContactPage() {
                     )}
                     {loading ? "Envoi en cours..." : "Envoyer le message"}
                   </Button>
+
+                  {/* Google Map (Desktop only - under button) */}
+                  <div className="hidden lg:block mt-8 h-[300px] w-full rounded-xl overflow-hidden border border-border shadow-lg">
+                    <iframe
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2621.876797893267!2d2.281611315676472!3d48.913801979292864!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66f0a3b2f2b3f%3A0x8e5f8f8f8f8f8f8f!2s2%20Quai%20Aulagnier%2C%2092600%20Asni%C3%A8res-sur-Seine!5e0!3m2!1sfr!2sfr!4v1629876543210!5m2!1sfr!2sfr"
+                      width="100%"
+                      height="100%"
+                      style={{ border: 0 }}
+                      allowFullScreen
+                      loading="lazy"
+                      referrerPolicy="no-referrer-when-downgrade"
+                    ></iframe>
+                  </div>
+
                 </form>
               )}
             </Card>
@@ -265,10 +279,10 @@ export default function ContactPage() {
                     <div>
                       <h3 className="font-semibold text-foreground mb-1">Email</h3>
                       <a
-                        href="mailto:contact@mkdigital.ai"
+                        href="mailto:contact@mkdigitalparis.com"
                         className="text-foreground/70 hover:text-primary transition-colors"
                       >
-                        contact@mkdigital.ai
+                        contact@mkdigitalparis.com
                       </a>
                     </div>
                   </div>
@@ -326,6 +340,19 @@ export default function ContactPage() {
                 </Card>
                 {/* ----------------------------------------- */}
 
+                {/* Google Map (Mobile only - under Instagram) */}
+                <div className="block lg:hidden h-[250px] w-full rounded-xl overflow-hidden border border-border mt-6">
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2621.876797893267!2d2.281611315676472!3d48.913801979292864!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66f0a3b2f2b3f%3A0x8e5f8f8f8f8f8f8f!2s2%20Quai%20Aulagnier%2C%2092600%20Asni%C3%A8res-sur-Seine!5e0!3m2!1sfr!2sfr!4v1629876543210!5m2!1sfr!2sfr"
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0 }}
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                  ></iframe>
+                </div>
+
               </div>
 
               <Card className="p-6 bg-gradient-to-br from-primary/10 to-chart-3/10 border-primary/20">
@@ -354,6 +381,6 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
-    </main>
+    </main >
   )
 }

@@ -8,15 +8,20 @@ const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
   title: "MKDigital | Intégrateur d'Agents IA Vocaux & Solutions d'Automatisation",
-  description: "Le Leader Français de l'Intégration d'Agents IA Vocaux pour TPE & PME. Automatisez votre standard, qualifiez vos prospects et encaissez 24/7. Solutions sectorielles pour Médical, Juridique, BTP et Services. Audit Gratuit.",
+  description: "Le Leader Français de l'Intégration d'Agents IA Vocaux. Intervention partout en France (Paris, Lyon, Marseille, Bordeaux). Automatisez votre standard, qualifiez vos prospects et encaissez 24/7. Solutions pour Médical, Juridique, BTP et Services.",
   keywords: [
     "Agent Vocal IA",
-    "Intelligence Artificielle",
-    "Automatisation PME",
+    "Intelligence Artificielle France",
+    "Meilleure Agence IA",
+    "Agence Marketing Digital IA",
+    "Automatisation PME France",
     "Secrétariat Médical IA",
     "Standardiste Avocat IA",
     "Agent Téléphonique IA",
     "Agence IA Paris",
+    "Agence IA Lyon",
+    "Agence IA Marseille",
+    "Agence IA Bordeaux",
     "Infrastructure de Revenus",
     "Prospection Automatique",
     "MKDigital",
@@ -25,7 +30,7 @@ export const metadata: Metadata = {
     "Automatisation Rétention Client",
     "Agent Vocal Immobilier",
     "Secrétariat Téléphonique 24/7",
-    "Intelligence Artificielle Vocale France"
+    "Consulting IA France"
   ],
   authors: [{ name: "MKDigital" }],
   openGraph: {
@@ -63,6 +68,13 @@ export const metadata: Metadata = {
       'max-image-preview': 'large',
       'max-snippet': -1,
     },
+  },
+
+  other: {
+    "geo.region": "FR-IDF",
+    "geo.placename": "Asnières-sur-Seine",
+    "geo.position": "48.9138;2.2838",
+    "ICBM": "48.9138, 2.2838"
   },
 }
 

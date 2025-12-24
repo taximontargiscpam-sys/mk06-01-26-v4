@@ -18,8 +18,15 @@ export default function JsonLd() {
                 "priceRange": "€€",
                 "address": {
                     "@type": "PostalAddress",
-                    "addressLocality": "Paris",
+                    "addressLocality": "Asnières-sur-Seine",
+                    "postalCode": "92600",
+                    "streetAddress": "2 Quai Aulagnier",
                     "addressCountry": "FR"
+                },
+                "geo": {
+                    "@type": "GeoCoordinates",
+                    "latitude": 48.9138,
+                    "longitude": 2.2838
                 },
                 "openingHoursSpecification": {
                     "@type": "OpeningHoursSpecification",
@@ -37,7 +44,26 @@ export default function JsonLd() {
                     "@type": "ContactPoint",
                     "telephone": "+33-9-39-03-01-76",
                     "contactType": "sales",
-                    "areaServed": "FR",
+                    "areaServed": [
+                        "FR",
+                        "Île-de-France",
+                        "Auvergne-Rhône-Alpes",
+                        "Nouvelle-Aquitaine",
+                        "Provence-Alpes-Côte d'Azur",
+                        "Hauts-de-France",
+                        "Grand Est",
+                        "Occitanie",
+                        "Pays de la Loire",
+                        "Bretagne",
+                        "Paris",
+                        "Lyon",
+                        "Marseille",
+                        "Bordeaux",
+                        "Lille",
+                        "Nantes",
+                        "Strasbourg",
+                        "Nice"
+                    ],
                     "availableLanguage": "French"
                 },
                 "sameAs": [
@@ -80,27 +106,6 @@ export default function JsonLd() {
                         }
                     ]
                 }
-            },
-            {
-                "@type": "FAQPage",
-                "mainEntity": [
-                    {
-                        "@type": "Question",
-                        "name": "Qu'est-ce qu'un agent IA vocal ?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "Un agent IA vocal est une intelligence artificielle capable de dialoguer naturellement par téléphone avec vos clients. Il décroche instantanément, comprend les demandes complexes, qualifie les prospects et prend des rendez-vous directement dans votre agenda."
-                        }
-                    },
-                    {
-                        "@type": "Question",
-                        "name": "L'agent IA peut-il remplacer une secrétaire ?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "L'agent IA ne remplace pas l'humain, il l'augmente. Il gère 100% des tâches répétitives (appels manqués, prise de RDV simple, FAQ) pour permettre à votre équipe de se concentrer sur les cas complexes et la relation client à haute valeur ajoutée."
-                        }
-                    }
-                ]
             },
             {
                 "@type": "BreadcrumbList",

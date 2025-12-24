@@ -1,0 +1,14 @@
+/* TEAM */
+  Founder: MKDigital Group
+  Contact: contact@mkdigitalparis.com
+  Location: Paris, France
+
+/* SITE */
+  Standards: HTML5, CSS3, JSON-LD
+  Components: Next.js, React, TailwindCSS
+  Protocol: GEO (Generative Engine Optimization) Compliant
+  Last Update: 2025-12-24
+
+/* MISSION */
+  Providing autonomous voice AI infrastructure for French SMBs.
+  Zero-latency, GDPR compliant, High-availability.

@@ -6,6 +6,8 @@ import { useRouter } from "next/navigation"
 import { Check, Phone, Mail, User, Briefcase, ArrowRight, TrendingUp, Users, Star, X, AlertTriangle, Lock, ShieldCheck, Zap, ChevronDown, CheckCircle2 } from "lucide-react"
 import { supabase } from "@/lib/supabaseClient"
 
+
+
 export default function ReservationPage() {
     const router = useRouter()
     const [isLoading, setIsLoading] = useState(false)
@@ -110,7 +112,9 @@ export default function ReservationPage() {
                 </div>
             </header>
 
+
             <main className="pt-28 pb-12 md:pt-32 md:pb-20">
+
                 <div className="container mx-auto px-4">
                     <div className="grid lg:grid-cols-2 gap-12 items-start max-w-6xl mx-auto">
 

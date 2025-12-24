@@ -31,7 +31,7 @@ export function Footer() {
                             </a>
                             <div className="flex items-center gap-3 text-sm text-muted-foreground">
                                 <MapPin className="w-4 h-4 text-primary" />
-                                <span>Paris, France</span>
+                                <span>2 Quai Aulagnier, 92600 Asnières-sur-Seine</span>
                             </div>
                         </div>
 
@@ -110,9 +110,58 @@ export function Footer() {
                                     Audit 360°
                                 </Link>
                             </li>
+                        </ul>
+                    </div>
+
+                    {/* Comparatifs (SEO Bait) */}
+                    <div className="space-y-6">
+                        <h3 className="font-bold text-white">Comparatifs</h3>
+                        <ul className="space-y-4">
                             <li>
-                                <Link href="/reservation" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                                    Espace Réservation
+                                <Link href="/vs/secretaire-humaine" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                                    vs Secrétaire
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/vs/centre-appel" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                                    vs Call Center
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/vs/formulaire-web" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                                    vs Formulaire
+                                </Link>
+                            </li>
+                        </ul>
+                    </div>
+
+                    {/* Solutions Métiers (Programmatic SEO) */}
+                    <div className="space-y-6">
+                        <h3 className="font-bold text-white">Métiers</h3>
+                        <ul className="space-y-4">
+                            <li>
+                                <Link href="/solutions/avocat" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                                    Secrétariat Avocat
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/solutions/dentiste" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                                    Standard Dentiste
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/solutions/immobilier" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                                    Agence Immo
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/solutions/plombier" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                                    Artisans BTP
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/solutions/restaurant" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                                    Restaurants
                                 </Link>
                             </li>
                         </ul>
@@ -137,6 +186,21 @@ export function Footer() {
                                     Contact Support
                                 </Link>
                             </li>
+                        </ul>
+                    </div>
+
+                    {/* Agences Locales (SEO Wall) */}
+                    <div className="space-y-6">
+                        <h3 className="font-bold text-white">Agences Locales</h3>
+                        <ul className="grid grid-cols-2 gap-x-4 gap-y-2">
+                            <li><Link href="/agence/paris" className="text-sm text-muted-foreground hover:text-primary transition-colors">Paris</Link></li>
+                            <li><Link href="/agence/lyon" className="text-sm text-muted-foreground hover:text-primary transition-colors">Lyon</Link></li>
+                            <li><Link href="/agence/marseille" className="text-sm text-muted-foreground hover:text-primary transition-colors">Marseille</Link></li>
+                            <li><Link href="/agence/bordeaux" className="text-sm text-muted-foreground hover:text-primary transition-colors">Bordeaux</Link></li>
+                            <li><Link href="/agence/toulouse" className="text-sm text-muted-foreground hover:text-primary transition-colors">Toulouse</Link></li>
+                            <li><Link href="/agence/nantes" className="text-sm text-muted-foreground hover:text-primary transition-colors">Nantes</Link></li>
+                            <li><Link href="/agence/lille" className="text-sm text-muted-foreground hover:text-primary transition-colors">Lille</Link></li>
+                            <li><Link href="/agence/strasbourg" className="text-sm text-muted-foreground hover:text-primary transition-colors">Strasbourg</Link></li>
                         </ul>
                     </div>
 
@@ -169,7 +233,7 @@ export function Footer() {
                         </Link>
                     </div>
                 </div>
-            </div>
-        </footer>
+            </div >
+        </footer >
     )
 }
