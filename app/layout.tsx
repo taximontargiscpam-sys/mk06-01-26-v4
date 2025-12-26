@@ -85,6 +85,7 @@ import { FacebookPixel } from "@/components/facebook-pixel"
 import { Clarity } from "@/components/clarity"
 import { LeadModalProvider } from "@/components/lead-modal-context"
 import { LeadCaptureModal } from "@/components/lead-capture-modal"
+import { RoundedWidget } from "@/components/rounded-widget"
 
 // ... (other imports)
 
@@ -114,6 +115,7 @@ export default function RootLayout({
           </noscript>
           <Footer />
         </LeadModalProvider>
+        <RoundedWidget />
         <Analytics />
       </body>
     </html>

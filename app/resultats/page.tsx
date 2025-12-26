@@ -8,8 +8,8 @@ import { AnimatedCounter } from "@/components/animated-counter"
 import { Target, CheckCircle2, ArrowRight, Star, Clock, DollarSign, Calendar } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
-import { FloatingCTA } from "@/components/floating-cta"
 import { PowerCTA } from "@/components/power-cta"
+import { PortfolioSection } from "@/components/portfolio-section"
 
 const CTA_URL = "/reservation"
 
@@ -210,23 +210,25 @@ export default function ResultatsPage() {
             ))}
           </div>
 
-          {/* CTA APRÈS CAS CLIENTS */}
           <div className="mt-20 flex justify-center">
             <PowerCTA text="Je veux les mêmes résultats" subtext="Prendre RDV avant que l'agenda ne soit plein" />
           </div>
         </div>
       </section>
 
+      {/* Portfolio Section */}
+      <PortfolioSection />
+
       {/* Why These Results */}
       <section className="py-20 relative">
         <div className="container mx-auto px-6">
-          <Card className="p-12 bg-gradient-to-br from-slate-900 to-slate-950 border-white/10 shadow-2xl text-center relative overflow-hidden group">
+          <Card className="p-12 bg-gradient-to-br from-blue-900 to-blue-950 border-white/10 shadow-2xl text-center relative overflow-hidden group">
             <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
 
-            <h2 className="md:text-4xl font-bold mb-8 text-foreground relative z-10">Pourquoi c'est 100% fiable ?</h2>
+            <h2 className="md:text-4xl font-bold mb-8 text-white relative z-10">Pourquoi c'est 100% fiable ?</h2>
             <div className="max-w-3xl mx-auto relative z-10">
-              <p className="text-xl text-foreground/80 leading-relaxed font-light">
-                <span className="text-primary font-semibold">Parce que ce n'est pas humain.</span> <br />
+              <p className="text-xl text-blue-100 leading-relaxed font-light">
+                <span className="text-white font-semibold">Parce que ce n'est pas humain.</span> <br />
                 L'IA ne dort pas, ne prend pas de pause café, n'a jamais de "mauvaise journée" et est toujours de bonne humeur. C'est une mécanique de précision suisse, appliquée à votre business.
               </p>
             </div>
@@ -251,8 +253,6 @@ export default function ResultatsPage() {
         </div>
       </section>
 
-      {/* Bouton flottant */}
-      <FloatingCTA />
     </main>
   )
 }

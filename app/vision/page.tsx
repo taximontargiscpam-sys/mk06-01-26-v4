@@ -8,8 +8,6 @@ import { PowerCTA } from "@/components/power-cta"
 import { Brain, Rocket, Target, Zap, Globe, Shield, TrendingUp, ArrowRight, Calendar, Sparkles } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
-import { FloatingCTA } from "@/components/floating-cta"
-
 const CTA_URL = "/reservation"
 
 const visionPillars = [
@@ -214,11 +212,11 @@ export default function VisionPage() {
       {/* The MKDigital Difference */}
       <section className="py-20 relative">
         <div className="container mx-auto px-6">
-          <Card className="p-12 bg-gradient-to-br from-slate-900 to-slate-950 border-primary/20 shadow-2xl">
+          <Card className="p-12 bg-gradient-to-br from-blue-900 to-blue-950 border-primary/20 shadow-2xl">
             <div className="max-w-4xl mx-auto space-y-12">
               <div className="text-center">
-                <h2 className="md:text-4xl font-bold mb-4 text-foreground text-2xl">La Différence MKDigital</h2>
-                <p className="text-foreground/70 text-sm">Ce qui nous distingue dans l'univers de l'IA</p>
+                <h2 className="md:text-4xl font-bold mb-4 text-white text-2xl">La Différence MKDigital</h2>
+                <p className="text-blue-100/80 text-sm">Ce qui nous distingue dans l'univers de l'IA</p>
               </div>
 
               <div className="grid md:grid-cols-2 gap-8">
@@ -234,8 +232,8 @@ export default function VisionPage() {
                   <div key={idx} className="flex items-start gap-4 p-4 rounded-lg hover:bg-white/5 transition-colors">
                     <div className="w-2 h-2 bg-primary rounded-full flex-shrink-0 mt-2.5 shadow-[0_0_10px_rgba(37,99,235,0.8)]" />
                     <div>
-                      <div className="font-bold text-foreground mb-1 text-lg">{item.title}</div>
-                      <div className="text-foreground/70 text-sm">{item.desc}</div>
+                      <div className="font-bold text-white mb-1 text-lg">{item.title}</div>
+                      <div className="text-blue-100/70 text-sm">{item.desc}</div>
                     </div>
                   </div>
                 ))}
@@ -265,8 +263,7 @@ export default function VisionPage() {
         </div>
       </section>
 
-      {/* Floating CTA */}
-      <FloatingCTA />
+      {/* Floating CTA Removed */}
     </main >
   )
 }

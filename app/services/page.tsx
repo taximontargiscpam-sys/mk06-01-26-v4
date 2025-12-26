@@ -5,7 +5,6 @@ import { Card } from "@/components/ui/card"
 import { CheckCircle2 } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
-import { FloatingCTA } from "@/components/floating-cta"
 import { Navigation } from "@/components/navigation"
 import { LevelsSection } from "@/components/levels-section"
 import { PowerCTA } from "@/components/power-cta"
@@ -99,7 +98,6 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <FloatingCTA />
     </main>
   )
 }

@@ -26,8 +26,6 @@ import {
 } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
-import { FloatingCTA } from "@/components/floating-cta"
-
 const CTA_URL = "/reservation"
 
 const industries = [
@@ -499,8 +497,7 @@ export default function SectorsPage() {
         </DialogContent>
       </Dialog>
 
-      {/* Floating CTA */}
-      <FloatingCTA />
+      {/* Floating CTA Removed */}
     </main>
   )
 }

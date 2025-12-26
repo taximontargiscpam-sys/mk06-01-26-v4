@@ -24,8 +24,6 @@ import {
 import Image from "next/image"
 import Link from "next/link"
 import { PowerCTA } from "@/components/power-cta"
-import { FloatingCTA } from "@/components/floating-cta"
-
 const CTA_URL = "/reservation"
 
 // Liste enrichie avec les compétences concurrentes + suppression du Closer
@@ -545,8 +543,7 @@ export default function AgentsPage() {
         </DialogContent>
       </Dialog>
 
-      {/* Floating CTA */}
-      <FloatingCTA />
+      {/* Floating CTA Removed */}
     </main>
   )
 }
