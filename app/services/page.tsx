@@ -89,7 +89,7 @@ export default function ServicesPage() {
 
             <div className="relative z-10 flex justify-center">
               <Button asChild size="lg" className="h-16 px-8 rounded-full bg-white text-primary hover:bg-white/90 font-bold text-lg shadow-xl shadow-white/10 transition-all hover:scale-105">
-                <Link href="https://api.leadconnectorhq.com/widget/bookings/expert-calendar-hb-ksoy5n" target="_blank">
+                <Link href="/contact">
                   Installer le standard maintenant
                 </Link>
               </Button>
