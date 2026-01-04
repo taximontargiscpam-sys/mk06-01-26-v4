@@ -123,7 +123,7 @@ export function GrowthSystemSection() {
 
                     {/* Embedded Lead Form / CTA */}
                     <div className="flex justify-center w-full">
-                        <PowerCTA text="Obtenir mon Agent Vocal Gratuit" subtext="Offre valable jusqu'au 31/12/2025" />
+                        <PowerCTA text="Obtenir mon Agent Vocal Gratuit" subtext="Offre limitée" />
                     </div>
                 </div>
             </div>

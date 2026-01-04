@@ -124,7 +124,7 @@ export default function ReservationPage() {
                             {/* Warning Badge */}
                             <div className="inline-flex flex-wrap items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-100 text-blue-700 text-xs font-semibold uppercase tracking-wide">
                                 <span className="w-2 h-2 bg-green-600 rounded-full animate-pulse"></span>
-                                Agent ia vocal Niveau 1 offert — Jusqu'au 31/12/2025
+                                Agent ia vocal Niveau 1 offert — Offre limitée
                             </div>
 
                             <h1 className="text-3xl md:text-4xl lg:text-6xl font-extrabold tracking-tight text-slate-900 leading-[1.15]">

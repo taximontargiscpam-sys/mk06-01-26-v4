@@ -16,7 +16,7 @@ export default function Home() {
       <GrowthSystemSection />
       <LevelsSection />
       <div className="flex justify-center py-12 bg-background relative z-10">
-        <PowerCTA text="Obtenir mon Agent Vocal Gratuit" subtext="Offre valable jusqu'au 31/12/2025" />
+        <PowerCTA text="Obtenir mon Agent Vocal Gratuit" subtext="Offre limitée" />
       </div>
       <VisionFooterSection />
       <FAQSection />
