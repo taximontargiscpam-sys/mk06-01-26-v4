@@ -64,7 +64,7 @@ export function RoundedWidget() {
           </div>
           <div className="relative h-[calc(100%-52px)] w-full">
             {/* Mask branding only (Powered by Rounded) - Responsive adjustment */}
-            <div className="absolute left-0 z-10 w-full bg-[#F9FAFB] top-[90px] h-32 sm:top-[128px] sm:h-14 pointer-events-none" />
+            <div className="absolute left-0 z-10 w-full bg-[#F9FAFB] top-[110px] h-32 sm:top-[128px] sm:h-14 pointer-events-none" />
 
             {/* Loading Overlay */}
             {isLoading && (
