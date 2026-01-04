@@ -17,7 +17,7 @@ const projects = [
         title: "Auto Reparis",
         category: "Automobile",
         description: "Plateforme pour garage automobile avec prise de RDV.",
-        url: "https://autoreparis.mkdigitalparis.com",
+        url: "https://v0-autoreparis.vercel.app/",
         color: "bg-red-500",
     },
     {
@@ -42,8 +42,8 @@ const projects = [
         color: "bg-green-500",
     },
     {
-        title: "Expert SEA",
-        category: "Marketing Digital",
+        title: "SEA Expertise",
+        category: "Cabinet Expert",
         description: "Site dédié aux services d'acquisition Google Ads.",
         url: "https://sea-expert.mkdigitalparis.com",
         color: "bg-orange-500",
