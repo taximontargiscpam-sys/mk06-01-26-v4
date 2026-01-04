@@ -10,14 +10,14 @@ const projects = [
         title: "Taxi Montargis",
         category: "Transport & VTC",
         description: "Site vitrine et de réservation pour service de taxi.",
-        url: "https://taximontargis.vercel.app",
+        url: "https://taximontargiscpam.mkdigitalparis.com",
         color: "bg-amber-500",
     },
     {
-        title: "Auto Repair",
+        title: "Auto Reparis",
         category: "Automobile",
         description: "Plateforme pour garage automobile avec prise de RDV.",
-        url: "https://v0-autorepariswebsite-plum.vercel.app",
+        url: "https://autoreparis.mkdigitalparis.com",
         color: "bg-red-500",
     },
     {
@@ -33,6 +33,20 @@ const projects = [
         description: "Site corporate pour services de conciergerie de luxe.",
         url: "https://mk-conciergerie.vercel.app/",
         color: "bg-blue-500",
+    },
+    {
+        title: "Pompe à Chaleur",
+        category: "Énergie & Rénovation",
+        description: "Landing page haute conversion pour installation de PAC.",
+        url: "https://pompeachaleur.mkdigitalparis.com",
+        color: "bg-green-500",
+    },
+    {
+        title: "Expert SEA",
+        category: "Marketing Digital",
+        description: "Site dédié aux services d'acquisition Google Ads.",
+        url: "https://sea-expert.mkdigitalparis.com",
+        color: "bg-orange-500",
     },
 ]
 
